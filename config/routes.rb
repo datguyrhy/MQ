@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :customers
+  resources :menus
   resources :restaurants
   resources :orders
   resources :posts
