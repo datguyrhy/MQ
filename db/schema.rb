@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2019_11_11_125834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "OrderDetails", force: :cascade do |t|
-    t.bigint "menu_id"
-    t.bigint "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["menu_id"], name: "index_OrderDetails_on_menu_id"
-    t.index ["order_id"], name: "index_OrderDetails_on_order_id"
-  end
-
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -45,10 +36,19 @@ ActiveRecord::Schema.define(version: 2019_11_11_125834) do
     t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
   end
 
+  create_table "order_details", force: :cascade do |t|
+    t.bigint "menu_id"
+    t.bigint "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_order_details_on_menu_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.bigint "post_id"
     t.bigint "customer_id"
-    t.float "price"
+    t.integer "total_payable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
@@ -58,12 +58,14 @@ ActiveRecord::Schema.define(version: 2019_11_11_125834) do
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.bigint "restaurant_id"
+    t.bigint "customer_id"
     t.text "message"
     t.string "pickup_location"
-    t.bigint "customer_id"
     t.boolean "order_sent"
     t.boolean "received"
     t.string "time_limit"
+    t.integer "slots_available"
+    t.integer "slot_left"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_posts_on_customer_id"
@@ -73,6 +75,8 @@ ActiveRecord::Schema.define(version: 2019_11_11_125834) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "address"
+    t.string "image_url"
+    t.decimal "minimum_spending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
