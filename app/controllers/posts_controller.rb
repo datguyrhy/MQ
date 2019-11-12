@@ -74,6 +74,6 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
 
-      params.require(:post).permit(:title, :restaurant_id, :customer_id, :message, :pickup_location, :slots_available, :slot_left)
+      params.require(:post).permit(:title, :restaurant_id, :customer_id, :message, :pickup_location, :slots_available, :slots_left)
     end
 end

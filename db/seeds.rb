@@ -13,25 +13,25 @@
 # Restaurant.create( :name => 'Tian Tian Noodle House',:address =>'368 Koufu Lane', :image_url => 'a', :minimum_spending =>'$8')
 # Restaurant.create( :name => 'Sushi Tei',:address =>'368 Holland Lane', :image_url => 'https://www.sushitei.com/outlets/thumbnails/SG.jpg', :minimum_spending =>'$12')
 
-# 10.times do
-# Restaurant.create(
-#        name: FFaker::Book.title,
-#        address: FFaker::AddressAU.street_address,
-#        image_url: FFaker::Image.url,
-#        minimum_spending: '$12',
-#        created_at: FFaker::Time.datetime,
-#        updated_at: FFaker::Time.datetime
-#    )
-# end
-
-5.times do
-Post.create(
-  title: FFaker::CheesyLingo.title,
-  restaurant_id: 2,
-  customer_id: 1,
-  message: FFaker::Lorem.phrase,
-  pickup_location: FFaker::AddressUS.street_name,
-  created_at: FFaker::Time.datetime,
-  updated_at: FFaker::Time.datetime
-)
+10.times do
+Restaurant.create(
+       name: FFaker::Book.title,
+       address: FFaker::AddressAU.street_address,
+       image_url: FFaker::Image.url,
+       minimum_spending: '$12',
+       created_at: FFaker::Time.datetime,
+       updated_at: FFaker::Time.datetime
+   )
 end
+
+# 5.times do
+# Post.create(
+#   title: FFaker::CheesyLingo.title,
+#   restaurant_id: 2,
+#   customer_id: 1,
+#   message: FFaker::Lorem.phrase,
+#   pickup_location: FFaker::AddressUS.street_name,
+#   created_at: FFaker::Time.datetime,
+#   updated_at: FFaker::Time.datetime
+# )
+# end
