@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+    root 'posts#index'
   resources :restaurants
   resources :orders
   resources :posts
