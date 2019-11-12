@@ -11,7 +11,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.boolean :received
       t.string :time_limit
       t.integer :slots_available
-      t.integer :slot_left
+      t.integer :slots_left
 
       t.timestamps
     end

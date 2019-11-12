@@ -1,25 +1,31 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Welcome to MQ!</h1>
 <h1>Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class='container'>
+  <% @posts.each_slice(3) do |post| %>
+    <div class="row">
+      <% post.each do |k| %>
+        <div class='col-md-4'>
+          <div class="card">
+            <img src="<%= k.restaurant.image_url%>" class="card-img-top">
+            <div class="card-body">
 
-<br>
+              <h5 class="card-title"><b>Title:</b> <%=k.title%></h5>
+              <p class="card-text"><b>Message: </b><%=k.message%></p>
+              <hr/>
+
+                <%= link_to 'Edit', edit_post_path(k)%></p>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  <%end%>
+</div>
+<%else%>
+
 
 <%= link_to 'New Post', new_post_path %>
