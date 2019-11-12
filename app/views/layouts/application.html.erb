@@ -22,14 +22,14 @@
                     <a class="nav-item nav-link" href="/orders">Orders</a>
                 </div>
                 <div class="row">
-                    <% if user_signed_in? %>
-                        <p>You are signed in as <%= current_user.email %></p>
+                    <% if customer_signed_in? %>
+                        <p>You are signed in as <%= current_customer.email %></p>
                         <a class="nav-item nav-link">
-                            <%= link_to 'Logout', destroy_user_session_url, method: :delete %>
+                            <%= link_to 'Logout', destroy_customer_session_url, method: :delete %>
                         </a>
                     <% else %>
                         <a class="nav-item nav-link">
-                            <%= link_to 'Login', new_user_session_url %>
+                            <%= link_to 'Login', new_customer_session_url %>
                         </a>
                     <% end %>
                 </div>
