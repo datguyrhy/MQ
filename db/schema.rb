@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_125834) do
+
+ActiveRecord::Schema.define(version: 2019_11_12_030029) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,45 +48,32 @@ ActiveRecord::Schema.define(version: 2019_11_11_125834) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.bigint "post_id"
-    t.bigint "customer_id"
-    t.integer "total_payable"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_orders_on_customer_id"
-    t.index ["post_id"], name: "index_orders_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "title"
-    t.bigint "restaurant_id"
-    t.bigint "customer_id"
-    t.text "message"
-    t.string "pickup_location"
-    t.boolean "order_sent"
-    t.boolean "received"
-    t.string "time_limit"
-    t.integer "slots_available"
-    t.integer "slot_left"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_posts_on_customer_id"
-    t.index ["restaurant_id"], name: "index_posts_on_restaurant_id"
-  end
-
-  create_table "restaurants", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "image_url"
-    t.decimal "minimum_spending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "students", id: :serial, force: :cascade do |t|
-    t.text "name"
-    t.string "phone", limit: 15
-    t.text "email"
+
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
   end
 
 end
