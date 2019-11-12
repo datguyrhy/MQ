@@ -81,4 +81,10 @@ ActiveRecord::Schema.define(version: 2019_11_11_125834) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "students", id: :serial, force: :cascade do |t|
+    t.text "name"
+    t.string "phone", limit: 15
+    t.text "email"
+  end
+
 end

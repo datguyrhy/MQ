@@ -7,34 +7,22 @@
   </p>
   
   <p>
-    <%= form.label :restaurant_id%><br>
-    <%= form.text_field :restaurant_id %>
-  </p>
-
-  <p>
-    <%= form.label :customer_id %><br>
-    <%= form.text_field :customer_id %>
+  <%= form.label :Restaurant %><br>
+  <%= collection_select(:post, :restaurant_id, Restaurant.all, :id, :name, prompt: true) %>
   </p>
   
   <p>
-  <%= form.label :message %><br>
-      <%= form.text_area :message %>
-    </p>
+    <%= form.label :pickup_location %><br>
+    <%= form.text_field :pickup_location %>
+  </p>
+ 
+  <p>
+    <%= form.label :message %><br>
+    <%= form.text_area :message %>
+  </p>
   
-    <p>
-      <%= form.label :pickup_location %><br>
-      <%= form.text_field :pickup_location %>
-    </p>
   
-    <p>
-      <%= form.label :slots_available %><br>
-      <%= form.text_field :slots_available %>
-    </p>
   
-    <p>
-        <%= form.label :slot_left %><br>
-        <%= form.text_field :slot_left%>
-    </p>
     
     <p>
       <%= form.submit %>
