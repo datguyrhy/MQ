@@ -10,11 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2019_11_11_104649) do
+=======
 ActiveRecord::Schema.define(version: 2019_11_11_125834) do
+>>>>>>> e9ebcc37c9a1a4daef082a04989256704512eaa8
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
+  create_table "orders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+=======
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -77,8 +94,18 @@ ActiveRecord::Schema.define(version: 2019_11_11_125834) do
     t.string "address"
     t.string "image_url"
     t.decimal "minimum_spending"
+>>>>>>> e9ebcc37c9a1a4daef082a04989256704512eaa8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
+  create_table "students", id: :serial, force: :cascade do |t|
+    t.text "name"
+    t.string "phone", limit: 15
+    t.text "email"
+  end
+
+=======
+>>>>>>> e9ebcc37c9a1a4daef082a04989256704512eaa8
 end
