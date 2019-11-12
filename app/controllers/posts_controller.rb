@@ -5,6 +5,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @customers =Customer.all
+    @restaurant = Restaurant.all
+
   end
 
   # GET /posts/1
@@ -69,6 +72,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.fetch(:post, {})
-    end
+        params.require(:post).permit(:title, :message,:pickup_location, :slots_available,:slot_left)
+      end
 end

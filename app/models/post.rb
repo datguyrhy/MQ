@@ -1,4 +1,4 @@
 class Post < ApplicationRecord
-  has_many :restaurants
+  belongs_to :restaurant
   has_many :customers
 end
