@@ -1,20 +1,29 @@
 <h1>New Post</h1>
 
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
-    <p>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-      
-    </p>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>  
+  </p>
   
-    <p>
-      <%= form.label :message %><br>
+  <p>
+    <%= form.label :restaurant_id%><br>
+    <%= form.text_field :restaurant_id %>
+  </p>
+
+  <p>
+    <%= form.label :customer_id %><br>
+    <%= form.text_field :customer_id %>
+  </p>
+  
+  <p>
+  <%= form.label :message %><br>
       <%= form.text_area :message %>
     </p>
   
     <p>
-      <%= form.label :pick_up_location %><br>
-      <%= form.text_field :pick_up_location %>
+      <%= form.label :pickup_location %><br>
+      <%= form.text_field :pickup_location %>
     </p>
   
     <p>
@@ -23,18 +32,8 @@
     </p>
   
     <p>
-        <%= form.label :slots_left %><br>
-        <%= form.text_field :slots_left%>
-    </p>
-
-    <p>
-        <%= form.label :customer_id %><br>
-        <%= form.text_field :customer_id %>
-    </p>
-
-    <p>
-        <%= form.label :restaurant_id%><br>
-        <%= form.text_field :restaurant_id %>
+        <%= form.label :slot_left %><br>
+        <%= form.text_field :slot_left%>
     </p>
     
     <p>
