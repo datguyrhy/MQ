@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   devise_for :customers
+  root 'posts#index'
   resources :menus
   resources :restaurants
   resources :orders
