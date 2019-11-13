@@ -1,6 +1,5 @@
 class Post < ApplicationRecord
 
-  belongs_to :restaurant
-  has_many :customers
-
+  has_and_belongs_to_many :customers
+  has_many :order
 end

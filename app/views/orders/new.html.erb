@@ -1,24 +1,15 @@
 <h1>New Order</h1>
 
-<%= form_with scope: :order, url: orders_path, local: true do |form| %>
-    <p>
-      <%= form.label :post_id %><br>
-      <%= form.text_field :post_id, placeholder: "params post id" %>
-    </p>
-  
-    <p>
-        <%= form.label :customer_id %><br>
-        <%= form.text_field :customer_id, placeholder: "params customer id" %>
-    </p>
-  
-    <p>
-      <%= form.label :total_payable %><br>
-      <%= form.text_field :total_payable, placeholder: "sum menu_id" %>
-    </p>
+    <p>Restaurant Name: XXX</p>
+    <p>Minimum Spending: $$$</p>
 
-    <p>
-        <%= form.submit %>
-    </p>
-<% end %>
+
+    <%= form_with scope: :order, url: post_orders_path, local: true do |form| %>
+
+        <%= form.collection_check_boxes :menu_ids, @menus, :id, :name %>
+        <p>
+            <%= form.submit %>
+        </p>
+    <% end %>
 
 <%= link_to 'Back', orders_path %>
