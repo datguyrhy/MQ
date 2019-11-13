@@ -1,4 +1,54 @@
-<p id="notice"><%= notice %></p>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">    
+                <h1>
+                <strong>Title:</strong>
+                </h1>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+                <p>
+                <strong>Restaurant:</strong>
+                </p>
+
+                <p>
+                <strong>Pick Up Location:</strong>
+                </p>
+                
+                <p>
+                <strong>Message:</strong>
+                </p>
+
+                <p>
+                <strong>Posted By:</strong>
+                </p>
+
+                <br>
+                <%= link_to 'Back', posts_path %>
+            </div>
+
+            <div class="col-6">    
+                <h1>
+                <%= @post.title %>
+                </h1>
+
+                <p>
+                <%= @restaurant.name %>
+                </p>
+
+                <p>
+                <%= @post.pickup_location %>
+                </p>
+  
+                <p>
+                <%= @post.message %>
+                </p>
+
+                <p>
+                <%= @poster.email %>
+                </p>
+
+                <br>
+            </div>
+        </div>
+    </div>
+</body>
