@@ -10,6 +10,10 @@ class CustomerProfilesController < ApplicationController
   # GET /customer_profiles/1
   # GET /customer_profiles/1.json
   def show
+    # @customer_profiles = current_customer.inspect
+    @customer_profiles = CustomerProfile.all
+    @customers= Customer.all
+    @customer_profiles= CustomerProfile.inspect
   end
 
   # GET /customer_profiles/new
