@@ -6,7 +6,7 @@
 
     <%= form_with scope: :order, url: post_orders_path, local: true do |form| %>
 
-        <%= form.collection_check_boxes :menu_ids, @menus, :id, :name %>
+        <%= form.collection_check_boxes :menu_item_ids, @menu_items, :id, :name %>
         <p>
             <%= form.submit %>
         </p>

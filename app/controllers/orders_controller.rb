@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @post = Post.find(params[:post_id])
-    @menus = Menu.all
+    @menu_items = MenuItem.all
   end
 
   # GET /orders/1/edit
