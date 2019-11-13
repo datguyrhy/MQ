@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @customers =Customer.all
-    @restaurants = Restaurant.all
+    @restaurant = Restaurant.all
 
   end
 
