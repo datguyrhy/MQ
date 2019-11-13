@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_11_125834) do
+ActiveRecord::Schema.define(version: 2019_11_13_064215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "customer_profiles", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,22 +35,20 @@ ActiveRecord::Schema.define(version: 2019_11_11_125834) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-  create_table "menus", force: :cascade do |t|
+  create_table "menu_items", force: :cascade do |t|
     t.string "name"
     t.float "price"
     t.bigint "restaurant_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["restaurant_id"], name: "index_menus_on_restaurant_id"
+    t.index ["restaurant_id"], name: "index_menu_items_on_restaurant_id"
   end
 
-  create_table "order_details", force: :cascade do |t|
+  create_table "menu_items_orders", force: :cascade do |t|
     t.bigint "menu_id"
     t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["menu_id"], name: "index_order_details_on_menu_id"
-    t.index ["order_id"], name: "index_order_details_on_order_id"
+    t.index ["menu_id"], name: "index_menu_items_orders_on_menu_id"
+    t.index ["order_id"], name: "index_menu_items_orders_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
