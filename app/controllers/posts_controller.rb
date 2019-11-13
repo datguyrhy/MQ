@@ -13,11 +13,17 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
+    @poster = Customer.find(@post.customer_id)
+    # @order = Order.find()
   end
 
   # GET /posts/new
   def new
     @posts = Post.new
+    @restaurants = Restaurant.all
+    @customers = Customer.all
   end
 
   # GET /posts/1/edit
@@ -28,7 +34,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    # render plain: params[:post].inspect
+    @post.customer_id = current_customer.id
 
     respond_to do |format|
       if @post.save
@@ -73,7 +79,10 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-
-      params.require(:post).permit(:title, :restaurant_id, :customer_id, :message, :pickup_location, :slots_available, :slots_left)
+      params.require(:post).permit(:title, :restaurant_id, :message, :pickup_location, :slots_available)
     end
+
+    # def current_customer
+    #   @customer = Customer.
+    # end
 end
