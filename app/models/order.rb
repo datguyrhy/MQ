@@ -1,7 +1,6 @@
 class Order < ApplicationRecord
     belongs_to :post
-    has_many :order_detail
+    has_many :menu_item
     belongs_to :customer
-    has_many :menu
 
 end

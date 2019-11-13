@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order_details = OrderDetails.new(order_details_params)
+    @order_details = OrderDetail.new(order_details_params)
     @order.customer = current_customer
     puts (params.inspect)
 
@@ -71,7 +71,7 @@ class OrdersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def order_params
-      params.require(:order).permit(:menu_ids[])
+    def order_details_params
+      params.require(:order).permit(:menu_ids => [])
     end
 end

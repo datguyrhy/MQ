@@ -3,13 +3,13 @@
     <p>Restaurant Name: XXX</p>
     <p>Minimum Spending: $$$</p>
 
-<form>
-    <%= form_with scope: :order, url: orders_path, local: true do |form| %>
+
+    <%= form_with scope: :order, url: post_orders_path, local: true do |form| %>
 
         <%= form.collection_check_boxes :menu_ids, @menus, :id, :name %>
         <p>
             <%= form.submit %>
         </p>
     <% end %>
-</form>
+
 <%= link_to 'Back', orders_path %>
