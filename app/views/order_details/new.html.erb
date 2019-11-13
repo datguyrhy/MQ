@@ -1,0 +1,11 @@
+<h1>Input your order details</h1>
+
+<form>
+    <%= form_with scope: :order, url: order_path, local: true do |form| %>
+
+        <%= form.collection_check_boxes :menu_ids, @menus, :id, :name %>
+        <p>
+            <%= form.submit %>
+        </p>
+    <% end %>
+</form>

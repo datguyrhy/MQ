@@ -14,7 +14,8 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
+    @post = Post.find(params[:post_id])
+    @menus = Menu.all
   end
 
   # GET /orders/1/edit
@@ -24,14 +25,15 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
+    @order_details = OrderDetails.new(order_details_params)
+    @order.customer = current_customer
+    puts (params.inspect)
 
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
-        byebug
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
@@ -70,6 +72,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:post_id, :customer_id, :total_payable)
+      params.require(:order).permit(:menu_ids[])
     end
 end

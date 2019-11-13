@@ -13,16 +13,16 @@
 # Restaurant.create( :name => 'Tian Tian Noodle House',:address =>'368 Koufu Lane', :image_url => 'a', :minimum_spending =>'$8')
 # Restaurant.create( :name => 'Sushi Tei',:address =>'368 Holland Lane', :image_url => 'https://www.sushitei.com/outlets/thumbnails/SG.jpg', :minimum_spending =>'$12')
 
-10.times do
-Restaurant.create(
-       name: FFaker::Book.title,
-       address: FFaker::AddressAU.street_address,
-       image_url: FFaker::Image.url,
-       minimum_spending: '$12',
-       created_at: FFaker::Time.datetime,
-       updated_at: FFaker::Time.datetime
-   )
-end
+# 10.times do
+# Restaurant.create(
+#        name: FFaker::Book.title,
+#        address: FFaker::AddressAU.street_address,
+#        image_url: FFaker::Image.url,
+#        minimum_spending: '$12',
+#        created_at: FFaker::Time.datetime,
+#        updated_at: FFaker::Time.datetime
+#    )
+# end
 
 # 5.times do
 # Post.create(
@@ -35,3 +35,13 @@ end
 #   updated_at: FFaker::Time.datetime
 # )
 # end
+
+5.times do
+Menu.create(
+  name: FFaker::Food.fruit,
+  price: 10,
+  restaurant_id: 2,
+  created_at: FFaker::Time.datetime,
+  updated_at: FFaker::Time.datetime
+)
+end
