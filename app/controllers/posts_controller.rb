@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.find(@post.restaurant_id)
     @poster = Customer.find(@post.customer_id)
     # @order = Order.find()
   end
