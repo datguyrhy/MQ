@@ -1,6 +1,33 @@
 <p id="notice"><%= notice %></p>
-<p>
-  <%=@customer_profiles%>
-  </p>
-<%= link_to 'Edit', edit_customer_profile_path(@customer_profile) %> |
-<%= link_to 'Back', customer_profiles_path %>
+<div class='container container-fluid'>
+<table class = "d-flex justify-content-center">
+  <tr>
+    <td>
+      <h2>Name:</h2>
+      </td>
+      <td>
+        <h2><%= current_customer.customer_profile.name %><br></h2>
+        </td>
+    </tr>
+    <tr>
+      <td>
+        <h2>Address:</h2>
+        </td>
+        <td>
+          <h2><%= current_customer.customer_profile.address %><br></h2>
+          </td>
+      </tr>
+      <tr>
+        <td>
+          <h2>Phone:</h2>
+          </td>
+          <td>
+            <h2><%= current_customer.customer_profile.phone %><br></h2>
+            </td>
+        </tr>
+  </table>
+  <p>11
+    <%= @orders%>
+    </p>
+    </div>
+<button class ="btn btn-outline-primary"><%= link_to 'Edit', edit_customer_profile_path(@customer_profile) %></button>
