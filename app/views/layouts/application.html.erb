@@ -22,12 +22,20 @@
                 </div>
                 <div class="row">
                   <div class ="d-flex align-items-center">
+
                     <% if customer_signed_in? %>
+                    <% if current_customer.customer_profile != nil%>
                       <img src="https://image.flaticon.com/icons/png/128/149/149071.png" style="width: 30px"/><a class="nav-item nav-link active"<%= link_to 'Profile', customer_profile_path(current_customer.customer_profile.customer_id) %></a>
                         Welcome Back <%= current_customer.customer_profile.name %>
                         <a class="nav-item nav-link">
                             <%= link_to 'Logout', destroy_customer_session_url, method: :delete %>
                         </a>
+                        <% else %>
+
+                        <p>
+                        <%= link_to 'create profile', new_customer_profile_path%>
+                          </p>
+                          <% end %>
                     <% else %>
                         <a class="nav-item nav-link">
                             <%= link_to 'Login', new_customer_session_url %>

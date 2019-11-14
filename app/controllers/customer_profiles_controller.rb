@@ -21,6 +21,7 @@ class CustomerProfilesController < ApplicationController
   # GET /customer_profiles/new
   def new
     @customer_profile = CustomerProfile.new
+  
   end
 
   # GET /customer_profiles/1/edit
