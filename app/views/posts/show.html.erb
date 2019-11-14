@@ -24,6 +24,7 @@
                 </p>
 
                 <br>
+                <%= link_to 'New Order', new_post_order_path(@post.id) %>
                 <%= link_to 'Back', posts_path %>
             </div>
 
@@ -77,9 +78,18 @@
                             <%= item.name %>: <%= item.price %>
                         <% end %>
                     </td>
-                    <td><%= order.menu_items.sum(:price) %></td>
+                    <td><%= order.total_payable %></td>
                 </tr>
             <% end %>
         </tbody>
     </table>
+
+    <p>Minimum spending for this restaurant: <%= @post.restaurant.minimum_spending %></p>
+    <p>Total amount for the orders for this post: <%= @orders.sum(:total_payable) %></p>
+
+    <% if @orders.sum(:total_payable) > 0 && @orders.sum(:total_payable) >= @post.restaurant.minimum_spending %>
+        <p>** 20% Discount is applied to all orders of this post.</p>
+    <% else %>
+        <p>** Get your friends to order before the closing window to get more discount!</p>
+    <% end %>
 </body>
