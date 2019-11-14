@@ -29,11 +29,12 @@ class OrdersController < ApplicationController
 
     @order.post_id = params[:post_id]
     @order.customer = current_customer
-
+    #@order.total_payable = @order.menu_items
     respond_to do |format|
       if @order.save
         # Get all orders of this post
         # Sum up the total amount of the orders of this post
+
         # If more than min. spending,
             # Update discount column in posts table to True
             # Total amount for each order of this post * 0.8
