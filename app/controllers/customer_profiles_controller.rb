@@ -23,6 +23,7 @@ class CustomerProfilesController < ApplicationController
 
   # GET /customer_profiles/1/edit
   def edit
+    @customer_profile = CustomerProfile.find(params[:id])
   end
 
   # POST /customer_profiles
@@ -73,6 +74,6 @@ class CustomerProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_profile_params
-      params.fetch(:customer_profile, {})
+    params.require(:customer_profile).permit(:name, :address,:phone)
     end
 end
