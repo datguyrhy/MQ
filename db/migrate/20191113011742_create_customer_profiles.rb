@@ -4,6 +4,7 @@ class CreateCustomerProfiles < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :address
       t.integer :phone
+      t.references :customer
       t.timestamps
     end
   end

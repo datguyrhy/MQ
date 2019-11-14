@@ -12,9 +12,9 @@
   <tbody>
     <% @customer_profiles.each do |customer_profile| %>
       <tr>
+        <td><%=  customer_profile.name %></td>
         <td><%= link_to 'Show', customer_profile %></td>
         <td><%= link_to 'Edit', edit_customer_profile_path(customer_profile) %></td>
-        <td><%= link_to 'Destroy', customer_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

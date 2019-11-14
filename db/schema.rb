@@ -19,8 +19,10 @@ ActiveRecord::Schema.define(version: 2019_11_13_064215) do
     t.string "name"
     t.string "address"
     t.integer "phone"
+    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_customer_profiles_on_customer_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -67,8 +69,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_064215) do
     t.bigint "customer_id"
     t.text "message"
     t.string "pickup_location"
-    t.boolean "order_sent"
-    t.boolean "received"
+    t.boolean "discount_achieved"
     t.string "time_limit"
     t.integer "slots_available"
     t.integer "slots_left"
