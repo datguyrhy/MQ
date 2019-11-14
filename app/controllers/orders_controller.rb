@@ -29,7 +29,7 @@ class OrdersController < ApplicationController
 
     @order.post_id = params[:post_id]
     @order.customer = current_customer
-    #@order.total_payable = @order.menu_items
+
     respond_to do |format|
       if @order.save
         # Get all orders of this post
