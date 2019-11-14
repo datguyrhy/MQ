@@ -69,7 +69,7 @@
         <tbody>
             <% @orders.each do |order| %>
                 <tr>
-                    <td><%= order.id %></td>
+                    <td><%= link_to order.id, post_order_path(post_id: @post.id, id: order.id) %></td>
                     <td><%= order.customer.customer_profile.name %></td>
                     <td><%= order.total_payable %></td>
                 </tr>
