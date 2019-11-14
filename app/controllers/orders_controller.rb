@@ -29,9 +29,17 @@ class OrdersController < ApplicationController
 
     @order.post_id = params[:post_id]
     @order.customer = current_customer
-    #@order.total_payable = @order.menu_items
+
+    puts "order total payable in controller"
+    @order.total_payable = @order.totalPayable
+
+    # @order.save
+    # render plain: "IN CONTROLLER AFTER SAVE"
+    # return
+
     respond_to do |format|
       if @order.save
+
         # Get all orders of this post
         # Sum up the total amount of the orders of this post
 

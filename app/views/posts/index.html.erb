@@ -3,9 +3,15 @@
 <h1>Welcome to MQ!</h1>
 <h1>Posts</h1>
 
+<div class="row sticky">
+  <div class="btn post-new">
+    <%= link_to 'New Post', new_post_path %>
+  </div>
+</div>
+
 
 <div class='container'>
-  <% @posts.each_slice(3) do |post| %>
+  <% @posts.each_slice(3) do |post| %><br>
     <div class="row">
       <% post.each do |k| %>
         <div class='col-md-4'>
@@ -13,11 +19,12 @@
             <img src="<%= k.restaurant.image_url%>" class="card-img-top">
             <div class="card-body">
 
-              <h5 class="card-title"><b>Title:</b> <%=k.title%></h5>
-              <p class="card-text"><b>Message: </b><%=k.message%></p>
+              <h5 class="card-title"><%=k.title%></h5>
+              <p class="card-text"><%=k.message%></p>
               <hr/>
-
-                <%= link_to 'Edit', edit_post_path(k)%></p>
+              <div class="btn btn-warning">
+                <%= link_to 'Show', post_path(post) %> 
+              </div>
             </div>
           </div>
         </div>
@@ -28,4 +35,4 @@
 <%else%>
 
 
-<%= link_to 'New Post', new_post_path %>
+
