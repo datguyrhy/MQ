@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
+gem 'pg_search'
+gem 'jquery-rails'
+gem 'paloma', '~> 5.1.0'
 gem 'rails_default_value'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'

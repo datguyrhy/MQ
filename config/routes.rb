@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   post '/posts/:post_id/orders' => 'orders#create'
   get '/posts/:post_id/orders/:id' => 'orders#show', as: 'post_order'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/ajax/fetchrestaurant/:restaurant_id' => 'posts#fetch'
+
 end
