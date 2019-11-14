@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :orders
   resources :posts
+  resources :customer_profiles
 
   get '/posts/:post_id/orders' => 'orders#index', as: 'post_orders'
   get '/posts/:post_id/orders/new' => 'orders#new', as: 'new_post_order'
