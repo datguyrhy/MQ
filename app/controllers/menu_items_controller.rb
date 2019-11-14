@@ -69,6 +69,6 @@ class MenusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_params
-      params.fetch(:menu, {})
+      params.require(:menu_item).permit(:order_ids => [])
     end
 end
