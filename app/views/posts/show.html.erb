@@ -56,14 +56,13 @@
 
         </div>
     </div>
-    <table class="table table-sm">
+
+    <table class="table table-sm text-center">
         <thead>
             <tr>
-                <td>Order ID</td>
-                <td>Post ID</td>
-                <td>Customer ID</td>
-                <td>Menu Items & Price</td>
-                <td>Total Payable</td>
+                <th>Order ID</th>
+                <th>Customer ID</th>
+                <th>Total Payable</th>
             </tr>
         </thead>
 
@@ -71,32 +70,44 @@
             <% @orders.each do |order| %>
                 <tr>
                     <td><%= order.id %></td>
-                    <td><%= order.post_id %></td>
-                    <td><%= order.customer_id %></td>
-                    <td>
-                        <% order.menu_items.each do |item| %>
-                            <%= item.name %>: <%= item.price %>
-                        <% end %>
-                    </td>
+                    <td><%= order.customer.customer_profile.name %></td>
                     <td><%= order.total_payable %></td>
                 </tr>
             <% end %>
+            <tr>
+                <td colspan="2" class="text-right">
+                    <strong>Total amount for the orders for this post: </strong>
+                </td>
+                <td>
+                    <strong><%= @orders.sum(:total_payable) %></strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-right">
+                    <strong>Minimum spending for this restaurant: </strong>
+                </td>
+                <td>
+                    <strong><%= @post.restaurant.minimum_spending %></strong>
+                </td>
+            </tr>
         </tbody>
     </table>
 <br/>
 <br/>
-    <p>Minimum spending for this restaurant: <%= @post.restaurant.minimum_spending %></p>
-    <p>Total amount for the orders for this post: <%= @orders.sum(:total_payable) %></p>
 
     <% if @orders.sum(:total_payable) > 0 && @orders.sum(:total_payable) >= @post.restaurant.minimum_spending %>
-        <p>** 20% Discount is applied to all orders of this post.</p>
+        <p style="text-align: right">** 20% Discount is applied to all orders of this post.</p>
     <% else %>
-        <p>** Get your friends to order before the closing window to get more discount!</p>
+        <p style="text-align: center">
+            ** Get your friends to order before the closing window to get more discount!
+        </p>
     <% end %>
 </body>
-<br/>
-<br/>
+
+<p style="text-align: center">
+    <%= link_to 'JOIN IN ORDER', new_post_order_path(@post.id) %>
+</p>
 <button class ="btn btn-outline-primary"><%= link_to 'Back', posts_path %></button>
 
- <%= link_to 'New Order', new_post_order_path(@post.id) %>
+
 
