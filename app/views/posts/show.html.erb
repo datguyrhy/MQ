@@ -1,6 +1,7 @@
 <body>
     <div class="container">
         <div class="row">
+
             <div class="col-4" style="text-align:right">    
                 <h1>
                 <strong>Title:</strong>
@@ -13,7 +14,7 @@
                 <p>
                 <strong>Pick Up Location:</strong>
                 </p>
-                
+
                 <p>
                 <strong>Message:</strong>
                 </p>
@@ -26,7 +27,9 @@
                 <%= link_to 'Back', posts_path %>
             </div>
 
+
             <div class="col-8" style="text-align:left">    
+
                 <h1>
                 <%= @post.title %>
                 </h1>
@@ -38,7 +41,7 @@
                 <p>
                 <%= @post.pickup_location %>
                 </p>
-  
+
                 <p>
                 <%= @post.message %>
                 </p>
@@ -51,4 +54,32 @@
             </div>
         </div>
     </div>
+
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <td>Order ID</td>
+                <td>Post ID</td>
+                <td>Customer ID</td>
+                <td>Menu Items & Price</td>
+                <td>Total Payable</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% @orders.each do |order| %>
+                <tr>
+                    <td><%= order.id %></td>
+                    <td><%= order.post_id %></td>
+                    <td><%= order.customer_id %></td>
+                    <td>
+                        <% order.menu_items.each do |item| %>
+                            <%= item.name %>: <%= item.price %>
+                        <% end %>
+                    </td>
+                    <td><%= order.menu_items.sum(:price) %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
 </body>

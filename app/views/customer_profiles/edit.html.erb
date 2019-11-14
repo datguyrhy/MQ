@@ -1,23 +1,23 @@
 <h1>Editing Customer Profile</h1>
 
-<%= form_with scope: :customer_profile, model: @customer_profile, local: true do |form| %>
+<%= form_with scope: :customer_profile, model: @customer_profile, local: true do |f| %>
 <div class="container-fluid d-flex  flex-column justify-contents-center align-items-center">
         <div class ='col-4 d-flex justify-contents-start align-items-center'>
-        <%= form.label :name %><br>&ensp;&ensp;
-        <%= form.text_field(:name, {:class => "form-control"}) %>
+        <%= f.label :name %><br>&ensp;&ensp;
+        <%= f.text_field(:name, {:class => "form-control"}) %>
       </div>
 
     <div class ='col-4 d-flex justify-contents-center align-items-center'>
-        <%= form.label :address %><br>
-        <%= form.text_field(:address, {:class => "form-control"}) %>
+        <%= f.label :address %><br>
+        <%= f.text_field(:address, {:class => "form-control"}) %>
       </div>
 
       <div class ='col-4 d-flex justify-contents-start align-items-center'>
-        <%= form.label :Phone %><br>&ensp;&ensp;
-        <%= form.text_field(:phone, {:class => "form-control"}) %>
+        <%= f.label :Phone %><br>&ensp;&ensp;
+        <%= f.text_field(:phone, {:class => "form-control"}) %>
       </div>
       <div class =' d-flex justify-contents-start align-items-center'>
-        <%= form.submit({:class => "btn btn-primary"}) %>
+        <%= f.submit({:class => "btn btn-primary"}) %>
       </div>
   </div>
 <% end %>
