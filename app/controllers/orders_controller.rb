@@ -39,8 +39,8 @@ class OrdersController < ApplicationController
             # Total amount for each order of this post * 0.8
         # Else,
             # Exit
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
+        format.html { redirect_to post_path(@order.post_id), notice: 'Order was successfully created.' }
+        # format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
