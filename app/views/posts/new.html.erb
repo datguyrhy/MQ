@@ -4,7 +4,7 @@
 <%= form_with scope: :post, url: posts_path, local: true do |form| %>
   <div class="container">
     <div class="row">
-      <div class"“col-5">   
+      <div class"“col-4">   
         <p>
           <%= form.label :title %>
 
@@ -14,7 +14,9 @@
           <%= form.label :Restaurant %><br>
 
         </p>
-        
+
+ 
+
         <p>
           <%= form.label :pickup_location %><br>
 
@@ -29,7 +31,7 @@
         </p>
       </div>
 
-      <div class="col-5">   
+      <div class="col-4">   
         <p>
 
           <%= form.text_field :title %>  
@@ -37,7 +39,7 @@
         
         <p>
 
-          <%= collection_select(:post, :restaurant_id, Restaurant.all, :id, :name, prompt: true) %>
+          <%= collection_select(:post, :restaurant_id, Restaurant.all, :id, :name, {prompt: true}, {:id => 'post_restaurant_id'}) %>
         </p>
         
         <p>
@@ -50,8 +52,21 @@
           <%= form.text_area :message %>
         </p>
       </div>
+
+      <div class="col-4">
+        <div id="result-name">
+        </div>
+        <div id="result-minimum">
+        </div>
+        <div id="result-image">
+        </div>
+      
+      </div>
     </div>
 <% end %>
+<%= link_to 'Back', posts_path %>
+</div>
 
-    <%= link_to 'Back', posts_path %>
-  </div>
+
+
+

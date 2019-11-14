@@ -10,6 +10,15 @@ class PostsController < ApplicationController
 
   end
 
+  def fetch
+
+    @restaurant = Restaurant.find(params[:restaurant_id])
+
+    respond_to do |format|
+      format.json {render json: @restaurant.to_json}
+    end
+  end
+
   # GET /posts/1
   # GET /posts/1.json
   def show
@@ -24,6 +33,7 @@ class PostsController < ApplicationController
     @posts = Post.new
     @restaurants = Restaurant.all
     @customers = Customer.all
+
   end
 
   # GET /posts/1/edit
