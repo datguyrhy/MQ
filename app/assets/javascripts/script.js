@@ -41,14 +41,5 @@ $(document).ready(function(){
         })
       }
       document.getElementById("post_restaurant_id").addEventListener("change",fetchData)
-
-    //   const responseHandler = function(){
-
-    //   }
-    //   var request = new XMLHttpRequest();
-      
-    //   request.addEventListener("load", responseHandler);
-    //   request.open("GET", "https://swapi.co/api/people/1");
-    //   request.send();
     }
   });

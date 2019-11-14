@@ -3,9 +3,12 @@
 <h1>Welcome to MQ!</h1>
 <h1>Posts</h1>
 
+<div class="btn btn-warning">
+  <%= link_to 'New Post', new_post_path %>
+</div>
 
 <div class='container'>
-  <% @posts.each_slice(3) do |post| %>
+  <% @posts.each_slice(3) do |post| %><br>
     <div class="row">
       <% post.each do |k| %>
         <div class='col-md-4'>
@@ -16,8 +19,9 @@
               <h5 class="card-title"><b>Title:</b> <%=k.title%></h5>
               <p class="card-text"><b>Message: </b><%=k.message%></p>
               <hr/>
-
-                <%= link_to 'Edit', edit_post_path(k)%></p>
+              <div class="btn btn-warning">
+                <%= link_to 'Show', post_path(post) %> 
+              </div>
             </div>
           </div>
         </div>
@@ -28,4 +32,4 @@
 <%else%>
 
 
-<%= link_to 'New Post', new_post_path %>
+
