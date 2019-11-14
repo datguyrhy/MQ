@@ -15,7 +15,7 @@ class CustomerProfilesController < ApplicationController
     @customer_profile = current_customer.customer_profile
     @customers= Customer.all
     @customer_profiles= CustomerProfile.inspect
-    @orders =Order.where(customer_id: 1)
+    @orders =Order.where(customer_id: current_customer.id)
   end
 
   # GET /customer_profiles/new
