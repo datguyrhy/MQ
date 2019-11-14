@@ -1,5 +1,5 @@
 class CustomerProfilesController < ApplicationController
-  before_action :set_customer_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_customer_profile, only:[ :edit, :update]
 
   # GET /customer_profiles
   # GET /customer_profiles.json
@@ -12,8 +12,10 @@ class CustomerProfilesController < ApplicationController
   def show
     # @customer_profiles = current_customer.inspect
     @customer_profiles = CustomerProfile.all
+    @customer_profile = current_customer.customer_profile
     @customers= Customer.all
     @customer_profiles= CustomerProfile.inspect
+    @orders =Order.where(customer_id: 1)
   end
 
   # GET /customer_profiles/new
@@ -30,7 +32,7 @@ class CustomerProfilesController < ApplicationController
   # POST /customer_profiles.json
   def create
     @customer_profile = CustomerProfile.new(customer_profile_params)
-
+    @customer_profile.customer_id = current_customer.id
     respond_to do |format|
       if @customer_profile.save
         format.html { redirect_to @customer_profile, notice: 'Customer profile was successfully created.' }

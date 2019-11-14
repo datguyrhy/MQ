@@ -1,28 +1,23 @@
 <h1>New Customer Profile</h1>
 
-<h1>New User Profile</h1>
 
-
-<%= form_with scope: :customer_profile, @customer_profile, local: true do |form| %>
+<%= form_with scope: :customer_profile, url: customer_profiles_path, local: true do |f| %>
 
   <!---depend whether we need want to add a user image -->
   <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </p>
 
   <p>
-    <%= form.label :address%><br>
-    <%= form.text_field :address %>
+    <%= f.label :address%><br>
+    <%= f.text_field :address %>
   </p>
 
   <p>
-    <%= form.label :phone %><br>
-    <%= form.text_field :phone %>
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
   </p>
-  <p>
-      <%= form.submit %>
-    </p>
+    <%= f.submit({:class => "btn btn-primary"}) %> |
+    <button class ="btn btn-outline-primary"><%= link_to 'Back', posts_path %></button>
   <% end %>
-
-<%= link_to 'Back', customer_profiles_path %>

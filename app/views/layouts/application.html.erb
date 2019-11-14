@@ -23,6 +23,7 @@
                 <div class="row">
                     <% if customer_signed_in? %>
                       <a class="nav-item nav-link active" href="/customer_profiles">Profile <span class="sr-only">(current)</span></a>
+                      <%= link_to 'Trial', customer_profile_path(current_customer.customer_profile.customer_id) %>
                         <p>You are signed in as <%= current_customer.email %></p>
                         <a class="nav-item nav-link">
                             <%= link_to 'Logout', destroy_customer_session_url, method: :delete %>
