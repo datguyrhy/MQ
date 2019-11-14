@@ -29,18 +29,19 @@ class OrdersController < ApplicationController
 
     @order.post_id = params[:post_id]
     @order.customer = current_customer
-
+    #@order.total_payable = @order.menu_items
     respond_to do |format|
       if @order.save
         # Get all orders of this post
         # Sum up the total amount of the orders of this post
+
         # If more than min. spending,
             # Update discount column in posts table to True
             # Total amount for each order of this post * 0.8
         # Else,
             # Exit
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
-        format.json { render :show, status: :created, location: @order }
+        format.html { redirect_to post_path(@order.post_id), notice: 'Order was successfully created.' }
+        # format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
