@@ -16,7 +16,8 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @post = Post.find(params[:post_id])
-    @menu_items = MenuItem.all
+    puts @post.restaurant_id
+    @menu_items = MenuItem.where(restaurant_id: @post.restaurant_id)
   end
 
   # GET /orders/1/edit
@@ -40,7 +41,7 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to post_path(@order.post_id), notice: 'Order was successfully created.' }
+        format.html { redirect_to post_order_path(post_id: @order.post_id, id: @order.id), notice: 'Order was successfully created.' }
         # format.json { render :show, status: :created, location: @order }
 
         # Get all orders of this post
