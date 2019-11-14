@@ -39,17 +39,44 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
-
-        # Get all orders of this post
-        # Sum up the total amount of the orders of this post
-
-        # If more than min. spending,
-            # Update discount column in posts table to True
-            # Total amount for each order of this post * 0.8
-        # Else,
-            # Exit
         format.html { redirect_to post_path(@order.post_id), notice: 'Order was successfully created.' }
         # format.json { render :show, status: :created, location: @order }
+
+        # Get all orders of this post
+        @orders = Order.where(post_id: @order.post_id)
+        puts "Orders for this post: >>>>"
+        puts @orders.inspect
+
+        # Sum up the total amount of the orders of this post
+        totalAmountForPost = @orders.sum(:total_payable)
+        puts "Total amount for this post: >>>>"
+        puts totalAmountForPost
+
+        # Get minimum spending for restaurant
+        minSpending = @order.post.restaurant.minimum_spending
+        puts "Min spending for this restaurant: >>>>"
+        puts minSpending
+
+        # If more than min. spending,
+        if totalAmountForPost > 0 && totalAmountForPost >= minSpending
+
+            puts "Discount Applies"
+
+            # Update discount column in posts table to True
+            @order.post.discount_achieved = true
+            puts @order.post.inspect
+
+            # Final discounted amount for each order of this post * 0.8
+            @order.total_payable = @order.total_payable * 0.8
+            @order.save
+            puts "New total payable after discount: >>>>"
+            puts @order.total_payable
+
+        # Else,
+        else
+            # Exit
+            puts "No Discount"
+        end
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
