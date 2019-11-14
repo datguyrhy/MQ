@@ -2,9 +2,8 @@
 
 <h1>New User Profile</h1>
 
-<h1>New Post</h1>
 
-<%= form_with scope: :customer_profile, url: customer_profiles_path, local: true do |form| %>
+<%= form_with scope: :customer_profile, @customer_profile, local: true do |form| %>
 
   <!---depend whether we need want to add a user image -->
   <p>
