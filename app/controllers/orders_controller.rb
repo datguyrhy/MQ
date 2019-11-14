@@ -25,12 +25,18 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order_details = OrderDetail.new(order_details_params)
+    @order = Order.new(order_params)
     @order.customer = current_customer
-    puts (params.inspect)
 
     respond_to do |format|
       if @order.save
+        # Get all orders of this post
+        # Sum up the total amount of the orders of this post
+        # If more than min. spending,
+            # Update discount column in posts table to True
+            # Total amount for each order of this post * 0.8
+        # Else,
+            # Exit
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -71,7 +77,7 @@ class OrdersController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def order_details_params
-      params.require(:order).permit(:menu_ids => [])
+    def order_params
+      params.require(:order).permit(:post_id, :customer_id, :menu_items_ids => [])
     end
 end

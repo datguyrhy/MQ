@@ -1,15 +1,9 @@
 <h1>New Order</h1>
 
-    <p>Restaurant Name: XXX</p>
-    <p>Minimum Spending: $$$</p>
 
+<%= form_with scope: :order, url: post_orders_path, local: true do |form| %>
+    <%= form.collection_check_boxes :menu_items_ids, @menu_items, :id, :name %>
+    <%= form.submit %>
+<% end %>
 
-    <%= form_with scope: :order, url: post_orders_path, local: true do |form| %>
-
-        <%= form.collection_check_boxes :menu_item_ids, @menu_items, :id, :name %>
-        <p>
-            <%= form.submit %>
-        </p>
-    <% end %>
-
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Back', root_path %>
