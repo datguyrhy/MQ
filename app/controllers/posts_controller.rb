@@ -16,7 +16,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @restaurant = Restaurant.find(@post.restaurant_id)
     @poster = Customer.find(@post.customer_id)
-    # @order = Order.find()
+    @orders = Order.where(post_id: @post)
   end
 
   # GET /posts/new
