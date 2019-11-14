@@ -7,8 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.references :customer
       t.text :message
       t.string :pickup_location
-      t.boolean :order_sent
-      t.boolean :received
+      t.boolean :discount_achieved
       t.string :time_limit
       t.integer :slots_available
       t.integer :slots_left

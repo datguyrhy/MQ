@@ -42,6 +42,15 @@ m1 = MenuItem.create(
 )
 end
 
+5.times do
+CustomerProfile.create(
+  name: FFaker::Name.male_name_with_suffix,
+  address: FFaker::AddressAU.full_address,
+  phone: FFaker::PhoneNumber.short_phone_number
+
+)
+end
+
 # Menu.create(  name: FFaker::Food.fruit,
 #   price: 10,
 #   restaurant_id: 2,
