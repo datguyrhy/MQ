@@ -1,33 +1,61 @@
 <p id="notice"><%= notice %></p>
+
+<h2>Your Details</h2>
 <div class='container container-fluid'>
 <table class = "d-flex justify-content-center">
   <tr>
     <td>
-      <h2>Name:</h2>
+      <h4>Name:</h4>
       </td>
       <td>
-        <h2><%= current_customer.customer_profile.name %><br></h2>
+        <h4><%= current_customer.customer_profile.name %><br></h4>
         </td>
     </tr>
     <tr>
       <td>
-        <h2>Address:</h2>
+        <h4>Address:</h4>
         </td>
         <td>
-          <h2><%= current_customer.customer_profile.address %><br></h2>
+          <h4><%= current_customer.customer_profile.address %><br></h4>
           </td>
       </tr>
       <tr>
         <td>
-          <h2>Phone:</h2>
+          <h4>Phone:</h4>
           </td>
           <td>
-            <h2><%= current_customer.customer_profile.phone %><br></h2>
+            <h4><%= current_customer.customer_profile.phone %><br></h4>
             </td>
         </tr>
   </table>
-  <p>11
-    <%= @orders%>
-    </p>
-    </div>
-<button class ="btn btn-outline-primary"><%= link_to 'Edit', edit_customer_profile_path(@customer_profile) %></button>
+  <button class ="btn btn-outline-primary"><%= link_to 'Edit Profile', edit_customer_profile_path(@customer_profile) %></button><br />
+  <br />
+
+  <table class="table table-sm">
+      <thead>
+          <tr>
+              <td>Order ID</td>
+              <td>Customer ID</td>
+              <td>Menu Items & Price</td>
+              <td>Total Payable</td>
+          </tr>
+      </thead>
+
+      <tbody>
+          <% @orders.each do |order| %>
+              <tr>
+                  <td><%= order.id %></td>
+                  <td><%= order.customer_id %></td>
+                  <td>
+                      <% order.menu_items.each do |item| %>
+                          <%= item.name %>: <%= item.price %>
+                      <% end %>
+                  </td>
+                  <td><%= order.menu_items.sum(:price) %></td>
+              </tr>
+          <% end %>
+      </tbody>
+  </table>
+
+<br />
+<button class ="btn btn-outline-primary"><%= link_to 'Back', posts_path %></button>

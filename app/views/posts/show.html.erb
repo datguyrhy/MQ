@@ -1,61 +1,61 @@
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row ">
+            <div class="col-12 d-flex flex-column">
+              <div class="row d-flex ">
+                <table class= "d-flex align-items-start">
+                  <tr>
+                    <td>
+                      <h3>Subject:</h3>
+                      </td>
+                      <td>
+                          <h3><%= @post.title %></h3>
+                        </td>
+                    </tr>
+                    <tr>
+                      <td>
+                          <p><strong>Restaurant:</strong></p>
+                        </td>
+                        <td>
+                            <p><%= @restaurant.name %></p>
+                          </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <p><strong>Location :</strong></p>
+                          </td>
+                          <td>
+                          <p><%= @post.pickup_location %></p>
+                            </td>
+                        </tr>
+                  </table>
 
-            <div class="col-4" style="text-align:right">    
-                <h1>
-                <strong>Title:</strong>
-                </h1>
+                </div>
 
-                <p>
-                <strong>Restaurant:</strong>
-                </p>
+              <div class="row d-flex justify-content-center">
 
-                <p>
-                <strong>Pick Up Location:</strong>
-                </p>
 
-                <p>
-                <strong>Message:</strong>
-                </p>
+                </div>
 
-                <p>
-                <strong>Posted By:</strong>
-                </p>
+              <div class="row d-flex justify-content-center">
 
-                <br>
-                <%= link_to 'New Order', new_post_order_path(@post.id) %>
-                <%= link_to 'Back', posts_path %>
+
+              </div>
+
+              <div class="row d-flex justify-content-center">
+                  <p><strong>Message:</strong></p>
+                  <p><%= @post.message %></p>
+              </div>
+
+              <div class="row">
+                <p><strong>Posted By:</strong></p>
+                <p><%= @poster.email %></p>
+              </div>
+              <!-- this is the end of the container div -->
             </div>
 
-
-            <div class="col-8" style="text-align:left">    
-
-                <h1>
-                <%= @post.title %>
-                </h1>
-
-                <p>
-                <%= @restaurant.name %>
-                </p>
-
-                <p>
-                <%= @post.pickup_location %>
-                </p>
-
-                <p>
-                <%= @post.message %>
-                </p>
-
-                <p>
-                <%= @poster.email %>
-                </p>
-
-                <br>
-            </div>
         </div>
     </div>
-
     <table class="table table-sm">
         <thead>
             <tr>
@@ -83,7 +83,8 @@
             <% end %>
         </tbody>
     </table>
-
+<br/>
+<br/>
     <p>Minimum spending for this restaurant: <%= @post.restaurant.minimum_spending %></p>
     <p>Total amount for the orders for this post: <%= @orders.sum(:total_payable) %></p>
 
@@ -93,3 +94,9 @@
         <p>** Get your friends to order before the closing window to get more discount!</p>
     <% end %>
 </body>
+<br/>
+<br/>
+<button class ="btn btn-outline-primary"><%= link_to 'Back', posts_path %></button>
+
+ <%= link_to 'New Order', new_post_order_path(@post.id) %>
+
