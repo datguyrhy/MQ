@@ -1,16 +1,15 @@
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row ">
-            <div class="col-12 d-flex flex-column">
+            <div class="col-12 d-flex flex-column justify-content-center align-items-center">
               <div class="row d-flex ">
                 <table class= "d-flex align-items-start">
                   <tr>
+                    <td><h3>Subject:</h3>
+                    </td>
                     <td>
-                      <h3>Subject:</h3>
+                        <h3><%= @post.title %></h3>
                       </td>
-                      <td>
-                          <h3><%= @post.title %></h3>
-                        </td>
                     </tr>
                     <tr>
                       <td>
@@ -28,29 +27,27 @@
                           <p><%= @post.pickup_location %></p>
                             </td>
                         </tr>
+                        <tr>
+                          <td>
+                              <p><strong>Message:</strong></p>
+                          </td>
+                          <td>
+                            <p><%= @post.message %></p>
+                          </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              <p><strong>Posted By:</strong></p>
+                            </td>
+                            <td>
+                              <p><%= @poster.email %></p>
+                            </td>
+                            </tr>
                   </table>
 
                 </div>
 
-              <div class="row d-flex justify-content-center">
 
-
-                </div>
-
-              <div class="row d-flex justify-content-center">
-
-
-              </div>
-
-              <div class="row d-flex justify-content-center">
-                  <p><strong>Message:</strong></p>
-                  <p><%= @post.message %></p>
-              </div>
-
-              <div class="row">
-                <p><strong>Posted By:</strong></p>
-                <p><%= @poster.email %></p>
-              </div>
               <!-- this is the end of the container div -->
             </div>
 
