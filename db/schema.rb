@@ -71,8 +71,6 @@ ActiveRecord::Schema.define(version: 2019_11_13_064215) do
     t.string "pickup_location"
     t.boolean "discount_achieved"
     t.string "time_limit"
-    t.integer "slots_available"
-    t.integer "slots_left"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_posts_on_customer_id"
