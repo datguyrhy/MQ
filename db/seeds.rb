@@ -29,13 +29,13 @@ Restaurant.create( :name => 'Pasta Fresca',:address =>'521 Watten Drive', :image
 
 
 
-Post.create( :title => 'Sushi Shakedown',:retaurant_id => 1,:customer_id => 1,:message => 'Calling all sushi lovers! Join this movement of sushi overload!',:pickup_location => 'Bedok MRT control station')
+Post.create( :title => 'Sushi Shakedown',:restaurant_id => 1,:customer_id => 1,:message => 'Calling all sushi lovers! Join this movement of sushi overload!',:pickup_location => 'Bedok MRT control station')
 
-Post.create( :title => 'Burger Bashi',:retaurant_id => 2,:customer_id => 3,:message => 'Let us train for the burger eating world cup',:pickup_location => '238 Orchard Road, Singapore 246333')
+Post.create( :title => 'Burger Bashi',:restaurant_id => 2,:customer_id => 3,:message => 'Let us train for the burger eating world cup',:pickup_location => '238 Orchard Road, Singapore 246333')
 
-Post.create( :title => 'Pizza Piesta',:retaurant_id => 3,:customer_id => 2,:message => 'Cowabunga!!!',:pickup_location => 'Blk 32 Tampines Ave 3, Singapore 524352, void deck')
+Post.create( :title => 'Pizza Piesta',:restaurant_id => 3,:customer_id => 2,:message => 'Cowabunga!!!',:pickup_location => 'Blk 32 Tampines Ave 3, Singapore 524352, void deck')
 
-Post.create( :title => 'When in Rome',:retaurant_id => 7,:customer_id => 1,:message => 'Do what the Romans do. Till pasta-finish do us part',:pickup_location => 'Braddell MRT control station')
+Post.create( :title => 'When in Rome',:restaurant_id => 7,:customer_id => 1,:message => 'Do what the Romans do. Till pasta-finish do us part',:pickup_location => 'Braddell MRT control station')
 
 
 
