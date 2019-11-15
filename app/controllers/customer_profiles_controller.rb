@@ -49,13 +49,12 @@ class CustomerProfilesController < ApplicationController
   # PATCH/PUT /customer_profiles/1
   # PATCH/PUT /customer_profiles/1.json
   def update
+      @customer_profile = CustomerProfile.find(params[:id])
     respond_to do |format|
       if @customer_profile.update(customer_profile_params)
         format.html { redirect_to @customer_profile, notice: 'Customer profile was successfully updated.' }
-        format.json { render :show, status: :ok, location: @customer_profile }
       else
         format.html { render :edit }
-        format.json { render json: @customer_profile.errors, status: :unprocessable_entity }
       end
     end
   end
