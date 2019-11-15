@@ -1,5 +1,6 @@
 class CustomerProfilesController < ApplicationController
-  before_action :set_customer_profile, only:[ :edit, :update]
+  # before_action :set_customer_profile, only:[ :edit, :update]
+  before_action :authenticate_customer!
 
   # GET /customer_profiles
   # GET /customer_profiles.json
@@ -21,7 +22,7 @@ class CustomerProfilesController < ApplicationController
   # GET /customer_profiles/new
   def new
     @customer_profile = CustomerProfile.new
-  
+
   end
 
   # GET /customer_profiles/1/edit
