@@ -104,14 +104,14 @@
     <% end %>
 </body>
 
-<p style="text-align: center">
+<div class= "col-12 d-flex justify-content-center">
     <% if current_customer.id == @post.customer_id %>
-        <%= link_to 'ADD ORDER', new_post_order_path(@post.id) %>
+        <button class ="btn btn-outline-primary"><%= link_to 'ADD ORDER', new_post_order_path(@post.id) %></button> &ensp;
     <% else %>
-        <%= link_to 'JOIN IN ORDER', new_post_order_path(@post.id) %>
+        <button class ="btn btn-outline-primary"><%= link_to 'JOIN IN ORDER', new_post_order_path(@post.id) %></button> &ensp;
     <% end %>
-</p>
-<button class ="btn btn-outline-primary"><%= link_to 'Back', posts_path %></button>
+ <button class ="btn btn-outline-primary"><%= link_to 'Back', posts_path %></button>
+</div>
 
 
 
