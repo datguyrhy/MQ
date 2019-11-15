@@ -104,10 +104,7 @@
     <% end %>
 </body>
 
-<p style="text-align: center">
-    <%= link_to 'JOIN IN ORDER', new_post_order_path(@post.id) %>
-</p>
-<button class ="btn btn-outline-primary"><%= link_to 'Back', posts_path %></button>
-
-
-
+<div class= "col-12 d-flex justify-content-center">
+  <button class ="btn btn-outline-primary"><%= link_to 'JOIN IN ORDER', new_post_order_path(@post.id) %></button> &ensp;
+  <button class ="btn btn-outline-primary"><%= link_to 'Back', posts_path %></button>
+</div>

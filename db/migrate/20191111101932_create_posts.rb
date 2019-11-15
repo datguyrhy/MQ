@@ -9,9 +9,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :pickup_location
       t.boolean :discount_achieved
       t.string :time_limit
-      t.integer :slots_available
-      t.integer :slots_left
-
       t.timestamps
     end
   end
