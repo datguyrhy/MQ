@@ -10,12 +10,14 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    @order = Order.find(params[:id])
   end
 
   # GET /orders/new
   def new
     @post = Post.find(params[:post_id])
-    @menu_items = MenuItem.all
+    puts @post.restaurant_id
+    @menu_items = MenuItem.where(restaurant_id: @post.restaurant_id)
   end
 
   # GET /orders/1/edit
@@ -39,17 +41,44 @@ class OrdersController < ApplicationController
 
     respond_to do |format|
       if @order.save
+        format.html { redirect_to post_order_path(post_id: @order.post_id, id: @order.id), notice: 'Order was successfully created.' }
+        # format.json { render :show, status: :created, location: @order }
 
         # Get all orders of this post
+        @orders = Order.where(post_id: @order.post_id)
+        puts "Orders for this post: >>>>"
+        puts @orders.inspect
+
         # Sum up the total amount of the orders of this post
+        totalAmountForPost = @orders.sum(:total_payable)
+        puts "Total amount for this post: >>>>"
+        puts totalAmountForPost
+
+        # Get minimum spending for restaurant
+        minSpending = @order.post.restaurant.minimum_spending
+        puts "Min spending for this restaurant: >>>>"
+        puts minSpending
 
         # If more than min. spending,
+        if totalAmountForPost > 0 && totalAmountForPost >= minSpending
+
+            puts "Discount Applies"
+
             # Update discount column in posts table to True
-            # Total amount for each order of this post * 0.8
+            @order.post.discount_achieved = true
+            puts @order.post.inspect
+
+            # Final discounted amount for each order of this post * 0.8
+            @order.total_payable = @order.total_payable * 0.8
+            @order.save
+            puts "New total payable after discount: >>>>"
+            puts @order.total_payable
+
         # Else,
+        else
             # Exit
-        format.html { redirect_to post_path(@order.post_id), notice: 'Order was successfully created.' }
-        # format.json { render :show, status: :created, location: @order }
+            puts "No Discount"
+        end
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
