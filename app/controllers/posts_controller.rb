@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.where(discount_achieved: "false")
     @customers =Customer.all
     @restaurant = Restaurant.all
 
