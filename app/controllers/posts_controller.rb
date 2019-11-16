@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     @restaurant = Restaurant.find(@post.restaurant_id)
     @poster = Customer.find(@post.customer_id)
     @orders = Order.where(post_id: @post)
+    @post_amount = @post.checkDiscountEligibility
   end
 
   # GET /posts/new
@@ -46,6 +47,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
+    @post.discount_achieved = false
 
     respond_to do |format|
       if @post.save
