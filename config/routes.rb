@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   get '/ajax/fetchrestaurant/:restaurant_id' => 'posts#fetch'
 
+
 end
