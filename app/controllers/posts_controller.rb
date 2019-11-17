@@ -8,12 +8,14 @@ class PostsController < ApplicationController
     @posts = Post.all.order('created_at DESC')
     if params[:search]
       @posts = Post.search(params[:search]).order("created_at DESC")
+      # @restaurants = Restaurant.search(params[:search]).order("created_at DESC")
     else
       @post = Post.all.order('created_at DESC')
     end
     
-    @customers =Customer.all
-    @restaurant = Restaurant.all
+    @restaurants = Restaurant.all
+    @customers = Customer.all
+
 
   end
 
@@ -99,6 +101,7 @@ class PostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :restaurant_id, :message, :pickup_location)
+      # params.require(:restaurant).permit(:name)
     end
 
     # def post_params

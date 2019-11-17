@@ -20,11 +20,11 @@ Restaurant.create( :name => 'Carls Junior',:address =>'32 Holland Drive', :image
 
 Restaurant.create( :name => 'Pizza Hut',:address =>'8 Dunearn Road', :image_url => 'https://www.pymnts.com/wp-content/uploads/2014/10/PizzaHutlogo.jpg', :minimum_spending =>40)
 
-Restaurant.create( :name => 'Mcdonalds',:address =>'65 Sixth Avenue', :image_url => 'https://carlisletheacarlisletheatre.org/images/mcdonalds-logo-8.jpg', :minimum_spending =>20)
+Restaurant.create( :name => 'Mcdonalds',:address =>'65 Sixth Avenue', :image_url => 'https://missionmarketplaceoceanside.com/wp-content/uploads/2018/06/mcdonalds-logo.jpg', :minimum_spending =>20)
 
 Restaurant.create( :name => 'Tambuah Mas',:address =>'2 Third Avenue', :image_url => 'https://www.paragon.com.sg/media/media/images/stores/Tambuah%20Mas%20Indonesian%20Restaurant%20(Halal%20Certified)/tambuah_feature_1200.jpg', :minimum_spending =>40)
 
-Restaurant.create( :name => 'Koi The',:address =>'46 Linden Drive', :image_url => 'https://middle.pngfans.com/20190629/rz/koi-logo-png-koi-th-bubble-tea-clipart-602ef1685f233d35.jpg', :minimum_spending =>10)
+Restaurant.create( :name => 'Koi The',:address =>'46 Linden Drive', :image_url => 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Koi_The.jpg', :minimum_spending =>10)
 
 Restaurant.create( :name => 'Pasta Fresca',:address =>'521 Watten Drive', :image_url => 'https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/logo/menu_logo_PastaFresca9e4711.jpg', :minimum_spending =>50)
 

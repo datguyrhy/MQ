@@ -1,14 +1,21 @@
 <div class='container'>
   <div class="row post-row">
-    <%= button_to 'New Post', new_post_path,  {method: 'get', class: 'new-post-btn'} %>
+    <div class='col-md-4'>
+      <div class="search-bar">
+        <%= form_tag(posts_path, :method => "get", id: "search-form") do %>
+          <%= text_field_tag :search, params[:search], placeholder: "Search Posts", class: "search-box" %>
+          <%= submit_tag "", class: "search-butt" %>
+        <% end %>
+      </div>
+    </div>
+    <div class='col-md-4'></div>
+    <div class='col-md-4'>
+      <%= button_to 'New Post', new_post_path,  {method: 'get', class: 'new-post-btn'} %>
+    </div>
   </div>  
 </div>
 
 
-<%= form_tag(posts_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
-<%= submit_tag "Search" %>
-<% end %>
 
 
 
@@ -26,7 +33,7 @@
               <div class="message"><%=k.message%></div>
 
               <div class="btn btn-block">
-                  <%= button_to 'Find out more', post_path(k.id), {method: 'get', class: 'show'} %> 
+                  <%= button_to 'Find out more', post_path(k.id), {method: 'get', class: 'show-butt'} %> 
               </div>
 
             </div>
