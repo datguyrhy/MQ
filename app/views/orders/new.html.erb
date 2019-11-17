@@ -4,20 +4,27 @@
     <div class= "col-12 d-flex flex-column justify-content-center align-items-center">
       <h2>New Order</h2>
       <h3>Restaurant Name: <%= @post.restaurant.name %></h3>
-      <p>Minimum Spending: <%= @post.restaurant.minimum_spending %></p>
+      <p>Minimum Spending: $<%= @post.restaurant.minimum_spending %></p>
     </div>
   </div>
+<div class="col-12 d-flex flex-column align-items-start justify-content-center">
+
+
 
   <% if @menu_items.length > 0 %>
       <%= form_with scope: :order, url: post_orders_path, local: true do |form| %>
-          <div class="offset-3 col-6 d-flex flex-row-wrap align-items-center justify-content-around">
-            <%= form.collection_check_boxes :menu_item_ids, @menu_items, :id, :name %>
-            </div>
+      <div class = "col-12 d-flex justify-content-start align-items-center" id="checkbox">
+          <%= form.collection_check_boxes :menu_item_ids, @menu_items, :id, :something%>
+      </div>
+
+
+          </div>
+  </div>
           <div class='row'>
             <div class= "col-12 d-flex justify-content-center align-items-center">
               <br />
               <br />
-              <%= form.submit "Save Order",({:class => "btn btn-primary"}) %>
+              <%= form.submit "Save Order",({:class => "btn btn-primary btn-style"}) %>
               </div>
             </div>
       <% end %>
@@ -26,7 +33,7 @@
   <% end %>
 
     <div class=" col-12 d-flex justify-content-center">
-        <button class ="btn btn-outline-primary"><%= link_to 'Back to Post', post_path(@post.id) %></button>
+        <%= button_to 'Back to Post', post_path(@post.id),{method:'get', class:'btn btn-primary btn-style'} %>
       </div>
 
   </div>
