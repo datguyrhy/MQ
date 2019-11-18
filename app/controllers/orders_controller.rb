@@ -46,40 +46,40 @@ class OrdersController < ApplicationController
         # format.json { render :show, status: :created, location: @order }
 
         # Get all orders of this post
-        @orders = Order.where(post_id: @order.post_id)
-        puts "Orders for this post: >>>>"
-        puts @orders.inspect
+        # @orders = Order.where(post_id: @order.post_id)
+        # puts "Orders for this post: >>>>"
+        # puts @orders.inspect
 
         # Sum up the total amount of the orders of this post
-        totalAmountForPost = @orders.sum(:total_payable)
-        puts "Total amount for this post: >>>>"
-        puts totalAmountForPost
+        # totalAmountForPost = @orders.sum(:total_payable)
+        # puts "Total amount for this post: >>>>"
+        # puts totalAmountForPost
 
         # Get minimum spending for restaurant
-        minSpending = @order.post.restaurant.minimum_spending
-        puts "Min spending for this restaurant: >>>>"
-        puts minSpending
+        # minSpending = @order.post.restaurant.minimum_spending
+        # puts "Min spending for this restaurant: >>>>"
+        # puts minSpending
 
         # If more than min. spending,
-        if totalAmountForPost > 0 && totalAmountForPost >= minSpending
+        # if totalAmountForPost > 0 && totalAmountForPost >= minSpending
 
-            puts "Discount Applies"
+        #     puts "Discount Applies"
 
-            # Update discount column in posts table to True
-            @order.post.discount_achieved = true
-            puts @order.post.inspect
+        #     # Update discount column in posts table to True
+        #     @order.post.discount_achieved = true
+        #     puts @order.post.inspect
 
-            # Final discounted amount for each order of this post * 0.8
-            @order.total_payable = @order.total_payable * 0.8
-            @order.save
-            puts "New total payable after discount: >>>>"
-            puts @order.total_payable
+        #     # Final discounted amount for each order of this post * 0.8
+        #     @order.total_payable = @order.total_payable * 0.8
+        #     @order.save
+        #     puts "New total payable after discount: >>>>"
+        #     puts @order.total_payable
 
         # Else,
-        else
+        # else
             # Exit
-            puts "No Discount"
-        end
+      #       puts "No Discount"
+      #   end
       else
         format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }

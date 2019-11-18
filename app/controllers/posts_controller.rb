@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.where(discount_achieved: "false")
     @customers =Customer.all
     @restaurant = Restaurant.all
 
@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     @restaurant = Restaurant.find(@post.restaurant_id)
     @poster = Customer.find(@post.customer_id)
     @orders = Order.where(post_id: @post)
+    @post_amount = @post.checkDiscountEligibility
   end
 
   # GET /posts/new
@@ -46,10 +47,11 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
+    @post.discount_achieved = false
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to new_post_order_path(@post.id), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
