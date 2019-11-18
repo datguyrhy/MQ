@@ -14,19 +14,19 @@
 
 
 # Restaurant==========================================================================
-Restaurant.create( :name => 'Sushi Tei',:address =>'368 Holland Lane', :image_url => 'https://www.paragon.com.sg/media/media/images/stores/Sushi%20Tei/sushitei_feature_1200.jpg', :minimum_spending => 50)
+Restaurant.create( :name => 'Sushi Tei',:address =>'368 Holland Lane', :image_url => 'https://www.lotteavenue.co.id/images/exhibitor/php1bg4vp_resized.png', :minimum_spending => 50)
 
-Restaurant.create( :name => 'Carls Junior',:address =>'32 Holland Drive', :image_url => 'https://i.pinimg.com/originals/12/43/f3/1243f3ca23b1333061004ef6512bc82d.jpg', :minimum_spending =>30)
+Restaurant.create( :name => 'Carls Junior',:address =>'32 Holland Drive', :image_url => 'https://seeklogo.net/wp-content/uploads/2017/04/carls-jr-logo-01.png', :minimum_spending =>30)
 
-Restaurant.create( :name => 'Pizza Hut',:address =>'8 Dunearn Road', :image_url => 'https://www.pymnts.com/wp-content/uploads/2014/10/PizzaHutlogo.jpg', :minimum_spending =>40)
+Restaurant.create( :name => 'Pizza Hut',:address =>'8 Dunearn Road', :image_url => 'https://www.samlevysvillage.com/wp-content/uploads/2018/01/Pizza_Hut_logo.svg.png', :minimum_spending =>40)
 
-Restaurant.create( :name => 'Mcdonalds',:address =>'65 Sixth Avenue', :image_url => 'https://missionmarketplaceoceanside.com/wp-content/uploads/2018/06/mcdonalds-logo.jpg', :minimum_spending =>20)
+Restaurant.create( :name => 'Mcdonalds',:address =>'65 Sixth Avenue', :image_url => 'http://pngimg.com/uploads/mcdonalds/mcdonalds_PNG14.png', :minimum_spending =>20)
 
-Restaurant.create( :name => 'Tambuah Mas',:address =>'2 Third Avenue', :image_url => 'https://www.paragon.com.sg/media/media/images/stores/Tambuah%20Mas%20Indonesian%20Restaurant%20(Halal%20Certified)/tambuah_feature_1200.jpg', :minimum_spending =>40)
+Restaurant.create( :name => 'Peramakan',:address =>'2 Third Avenue', :image_url => 'https://www.peramakan.com/wp-content/uploads/2019/05/logo_dark.png', :minimum_spending =>40)
 
-Restaurant.create( :name => 'Koi The',:address =>'46 Linden Drive', :image_url => 'https://upload.wikimedia.org/wikipedia/commons/3/3d/Koi_The.jpg', :minimum_spending =>10)
+Restaurant.create( :name => 'Koi The',:address =>'46 Linden Drive', :image_url => 'https://www.koithe.com/frontend/images/about/about-logo.png', :minimum_spending =>10)
 
-Restaurant.create( :name => 'Pasta Fresca',:address =>'521 Watten Drive', :image_url => 'https://s3-ap-southeast-1.amazonaws.com/v3-live.image.oddle.me/logo/menu_logo_PastaFresca9e4711.jpg', :minimum_spending =>50)
+Restaurant.create( :name => 'Pasta Fresca',:address =>'521 Watten Drive', :image_url => 'https://www.dapaolo.com.sg/assets/images/DaPaoloGroupLogo.png', :minimum_spending =>50)
 
 
 
@@ -37,6 +37,12 @@ Post.create( :title => 'Sushi Shakedown',:restaurant_id => 1,:customer_id => 1,:
 Post.create( :title => 'Burger Bashi',:restaurant_id => 2,:customer_id => 3,:message => 'Let us train for the burger eating world cup',:pickup_location => '238 Orchard Road, Singapore 246333')
 
 Post.create( :title => 'Pizza Piesta',:restaurant_id => 3,:customer_id => 2,:message => 'Cowabunga!!!',:pickup_location => 'Blk 32 Tampines Ave 3, Singapore 524352, void deck')
+
+Post.create( :title => 'Super Size Her',:restaurant_id => 4,:customer_id => 2,:message => 'Why let her call you fat?',:pickup_location => 'Redhill MRT control station')
+
+Post.create( :title => 'Makan Sini',:restaurant_id => 5,:customer_id => 3,:message => 'Stuff yourself with local goodness',:pickup_location => 'Blk 15 Hougang Ave 1, lift lobby')
+
+Post.create( :title => 'Koi Duh',:restaurant_id => 6,:customer_id => 3,:message => 'This is for the pearl suckers. Unite.',:pickup_location => 'Chinatown Point Level 2 female toilet entrance')
 
 Post.create( :title => 'When in Rome',:restaurant_id => 7,:customer_id => 1,:message => 'Do what the Romans do. Till pasta-finish do us part',:pickup_location => 'Braddell MRT control station')
 
