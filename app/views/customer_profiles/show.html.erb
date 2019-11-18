@@ -2,8 +2,14 @@
 
 <div class='container container-fluid'>
 
-<table class = "d-flex justify-content-center">
+<table class = " offset-1 col-10 d-flex justify-content-start">
+  <tr>
+    <td>
     <h2>Your Details</h2>
+      </td>
+
+    </tr>
+
   <tr>
     <td>
       <h4>Name:</h4>
@@ -29,28 +35,28 @@
             </td>
         </tr>
   </table>
-
-
-  <table class="table table-sm">
+<br />
+  <div class = "offset-1 col-10">
+  <table class="table table-sm text-center">
       <thead>
           <tr>
-              <td><h5>View Your Order</h5> </td>
-              <td><h5>View Post</h5></td>
-              <td><h5>Total Payable</h5></td>
+              <th>View Your Order</th>
+              <th>View Post</th>
+              <th>Total Payable</th>
           </tr>
       </thead>
 
       <tbody>
           <% @orders.each do |order| %>
               <tr>
-                  <td><%= button_to "View Order", post_order_path(post_id: order.post.id, id: order.id), {method:'get', class:'btn btn-primary btn-style'} %></td>
-                  <td><%= link_to order.post.title, post_path(order.post.id)%>  </td>
-                  <td>$<%= order.menu_items.sum(:price) %></td>
+                  <td><%= button_to "View Order", post_order_path(post_id: order.post.id, id:order.id), {method:'get', class:'btn btn-primary btn-style'} %></td>
+                  <td style="padding-top:10px;"><strong><%= link_to order.post.title, post_path(order.post.id)%></strong></td>
+                  <td style="padding-top:10px;">$<%= order.menu_items.sum(:price) %></td>
               </tr>
           <% end %>
       </tbody>
   </table>
-
+</div>
 <br />
 <div class= "col-12 d-flex justify-content-center">
   <%= button_to 'Edit Profile', edit_customer_profile_path(@customer_profile), {method:'get', class:'btn btn-primary btn-style'} %><br />

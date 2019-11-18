@@ -10,9 +10,9 @@
     </div>
     <div class='col-md-4'></div>
     <div class='col-md-4'>
-      <%= button_to 'New Post', new_post_path,  {method: 'get', class: 'new-post-btn'} %>
+      <%= button_to 'New Post', new_post_path,  {method: 'get', class: 'new-post-btn btn-style'} %>
     </div>
-  </div>  
+  </div>
 </div>
 
 
@@ -33,7 +33,7 @@
               <div class="message"><%=k.message%></div>
 
               <div class="btn btn-block">
-                  <%= button_to 'Find out more', post_path(k.id), {method: 'get', class: 'show-butt'} %> 
+                  <%= button_to 'Find out more', post_path(k.id), {method: 'get', class: 'show-butt'} %>
               </div>
 
             </div>
@@ -44,7 +44,3 @@
     </div>
   <%end%>
 </div>
-
-
-
-
