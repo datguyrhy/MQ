@@ -35,6 +35,11 @@ class CustomerProfilesController < ApplicationController
   def create
     @customer_profile = CustomerProfile.new(customer_profile_params)
     @customer_profile.customer_id = current_customer.id
+
+    if @customer_profile.name == ""
+        @customer_profile.name = current_customer.email
+    end
+
     respond_to do |format|
       if @customer_profile.save
         format.html { redirect_to @customer_profile, notice: 'Customer profile was successfully created.' }
@@ -49,7 +54,8 @@ class CustomerProfilesController < ApplicationController
   # PATCH/PUT /customer_profiles/1
   # PATCH/PUT /customer_profiles/1.json
   def update
-      @customer_profile = CustomerProfile.find(params[:id])
+    @customer_profile = CustomerProfile.find(params[:id])
+
     respond_to do |format|
       if @customer_profile.update(customer_profile_params)
         format.html { redirect_to @customer_profile, notice: 'Customer profile was successfully updated.' }
