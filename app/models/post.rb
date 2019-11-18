@@ -5,9 +5,10 @@ class Post < ApplicationRecord
     has_many :order
 
 
-  def self.search(search)
-    where("message ILIKE ?", "%#{search}%")
-    where("title ILIKE ?", "%#{search}%")
+    def self.search(search)
+      where("message ILIKE ?", "%#{search}%")
+      where("title ILIKE ?", "%#{search}%")
+    end
 
     def checkDiscountEligibility
         result = self.order.sum(:total_payable)
