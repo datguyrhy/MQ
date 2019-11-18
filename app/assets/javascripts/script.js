@@ -30,6 +30,7 @@ $(document).ready(function(){
                 const displayImage = document.getElementById("result-image");
                 displayImage.innerHTML = "";
                 var resultPic = document.createElement("img");
+                resultPic.classList.add("ajax-img")
                 resultPic.src=data.image_url;
                 displayImage.appendChild(resultPic);
                 

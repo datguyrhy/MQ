@@ -92,8 +92,9 @@
 <br/>
 <br/>
 
-    <% if @orders.sum(:total_payable) > 0 && @orders.sum(:total_payable) >= @post.restaurant.minimum_spending %>
+    <% if @post_amount > 0 && @post_amount >= @post.restaurant.minimum_spending %>
         <p style="text-align: right">** 20% Discount is applied to all orders of this post.</p>
+        <% @post.update(discount_achieved: "true") %>
     <% else %>
         <p style="text-align: center">
             ** Get your friends to order before the closing window to get more discount!
@@ -102,10 +103,17 @@
 </body>
 
 <div class= "col-12 d-flex justify-content-center">
-    <% if current_customer.id == @post.customer_id %>
-        <%= button_to 'ADD ORDER', new_post_order_path(@post.id),{method:'get', class:'btn btn-primary btn-style'} %> &ensp;
+ 
+    <% if @post.discount_achieved == false %>
+        <% if current_customer.id == @post.customer_id %>
+             <%= button_to 'ADD ORDER', new_post_order_path(@post.id),{method:'get', class:'btn btn-primary btn-style'} %> &ensp;
+        <% else %>
+            <%= button_to 'JOIN IN ORDER', new_post_order_path(@post.id),{method:'get', class:'btn btn-primary btn-style'} %> &ensp;
+        <% end %>
     <% else %>
-        <%= button_to 'JOIN IN ORDER', new_post_order_path(@post.id),{method:'get', class:'btn btn-primary btn-style'} %> &ensp;
+        <p>This post is closed and is no longer accepting orders.</p>
     <% end %>
-  <%= button_to 'Back', posts_path,{method:'get', class:'btn btn-primary btn-style'}%>
+
+ <%= button_to 'Back', posts_path,{method:'get', class:'btn btn-primary btn-style'}%>
+
 </div>
