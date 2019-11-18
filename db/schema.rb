@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_11_13_064215) do
     t.bigint "customer_id"
     t.text "message"
     t.string "pickup_location"
-    t.boolean "discount_achieved"
+    t.boolean "discount_achieved", default: false
     t.string "time_limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -84,12 +84,6 @@ ActiveRecord::Schema.define(version: 2019_11_13_064215) do
     t.decimal "minimum_spending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "students", id: :serial, force: :cascade do |t|
-    t.text "name"
-    t.string "phone", limit: 15
-    t.text "email"
   end
 
 end
