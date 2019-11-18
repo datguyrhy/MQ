@@ -1,23 +1,35 @@
-<h1>New Customer Profile</h1>
+
+<div class='container-fluid'>
 
 
-<%= form_with scope: :customer_profile, url: customer_profiles_path, local: true do |f| %>
+  <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+    <div class "row">
+      <h1>New Customer Profile</h1>
+      </div>
+<div class= "row">
+  <%= form_with scope: :customer_profile, url: customer_profiles_path, local: true do |f| %>
 
-  <!---depend whether we need want to add a user image -->
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+    <!---depend whether we need want to add a user image -->
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
 
-  <p>
-    <%= f.label :address%><br>
-    <%= f.text_field :address %>
-  </p>
+    <p>
+      <%= f.label :address%><br>
+      <%= f.text_field :address %>
+    </p>
 
-  <p>
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </p>
-    <%= f.submit({:class => "btn btn-primary btn-style"}) %> |
-  <%= button_to 'Back', posts_path,{method:'get', class:'btn btn-primary btn-style'} %>
-  <% end %>
+    <p>
+      <%= f.label :phone %><br>
+      <%= f.text_field :phone %>
+    </p>
+      <%= f.submit({:class => "btn btn-primary btn-style"}) %>
+      <br />
+      <br />
+    <%= button_to 'Back', posts_path,{method:'get', class:'btn btn-primary btn-style'} %>
+    <% end %>
+    </div>
+  </div>
+
+  </div>
