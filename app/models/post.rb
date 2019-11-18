@@ -4,6 +4,11 @@ class Post < ApplicationRecord
     has_and_belongs_to_many :customers
     has_many :order
 
+
+  def self.search(search)
+    where("message ILIKE ?", "%#{search}%")
+    where("title ILIKE ?", "%#{search}%")
+
     def checkDiscountEligibility
         result = self.order.sum(:total_payable)
         puts "Total sum for this post: >>>>"
@@ -11,4 +16,5 @@ class Post < ApplicationRecord
 
         return result
     end
+
 end
