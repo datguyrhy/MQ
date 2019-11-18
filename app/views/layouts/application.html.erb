@@ -29,10 +29,9 @@
                      <% if customer_signed_in? %>
                      <% if current_customer.customer_profile != nil%>
                      <div class = "d-flex align-items-center">
-                       <a class="nav-item nav-link active"<%= link_to 'Profile', customer_profile_path(current_customer.customer_profile.customer_id) %></a>
-                        <p style="color:#ffeecc; padding-top: 15px;">Welcome Back <strong><%= current_customer.customer_profile.name %></strong></p>
+                        <p style="color:#ffeecc; padding-top: 15px;">Welcome Back <strong><%= link_to current_customer.customer_profile.name , customer_profile_path(current_customer.customer_profile.customer_id) %></strong></p>
                          <a class="nav-item nav-link">
-                             <%= link_to 'Logout', destroy_customer_session_url, method: :delete %>
+                             <strong><%= link_to 'Logout', destroy_customer_session_url, method: :delete %></strong>
                          </a>
                          <% else %>
 
@@ -42,7 +41,7 @@
                            <% end %>
                      <% else %>
                          <a class="nav-item nav-link">
-                             <%= link_to 'Login', new_customer_session_url %>
+                             <strong><%= link_to 'Login', new_customer_session_url %></strong>
                          </a>
                      <% end %>
                        </div>
