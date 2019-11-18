@@ -6,19 +6,19 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @restaurants = Restaurant.all
-    @posts = Post.all.where(discount_achieved: "false")
-    @posts = Post.all.order('created_at DESC')
+    @posts = Post.all.where(discount_achieved: "false").order('created_at DESC')
+    # @posts = Post.all.order('created_at DESC')
     @customers =Customer.all
     @restaurant = Restaurant.all
-  
+
     if params[:search]
       @posts = Post.search(params[:search]).order("created_at DESC")
       # @restaurants = Restaurant.search(params[:search]).order("created_at DESC")
     else
       @post = Post.all.order('created_at DESC')
     end
-    
- 
+
+
 
   end
 
