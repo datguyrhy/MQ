@@ -2,8 +2,9 @@
   <div class ="row">
     <div class = 'offset-1 col-10 d-flex flex-column'>
       <h2>Your order has been submitted successfully.</h2>
-      <p>Order is created at: <%= @order.created_at %></p>
-      <p>Expected delivery time: <%= @order.created_at + 2 * 60 * 60%></p>
+      <% Time.zone='Singapore' %>
+      <p>Order is created at: <%= Time.zone.parse(@order.created_at.to_s) %></p>
+      <p>Expected delivery time: <%= @order.created_at + 2 * 60 * 60 %></p>
     </div>
   </div>
   <div class = 'row'>
