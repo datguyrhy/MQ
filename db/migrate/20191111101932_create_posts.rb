@@ -7,7 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.references :customer
       t.text :message
       t.string :pickup_location
-      t.boolean :discount_achieved
+      t.boolean :discount_achieved, default: false
       t.string :time_limit
       t.timestamps
     end
