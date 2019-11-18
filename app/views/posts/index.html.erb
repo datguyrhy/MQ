@@ -31,10 +31,7 @@
             <div class="overlay">
               <div class="title"><strong><%=k.title%></strong></div>
               <div class="message"><%=k.message%></div>
-
-              <div class="btn btn-block">
-                  <%= button_to 'Find out more', post_path(k.id), {method: 'get', class: 'show-butt'} %>
-              </div>
+              <%= button_to '', post_path(k.id), {method: 'get', class: 'show-butt'} %>
 
             </div>
 
