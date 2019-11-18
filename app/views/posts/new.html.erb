@@ -1,55 +1,62 @@
 
 
 
-<%= form_with scope: :post, url: posts_path, local: true do |form| %>
-  <div class="container-fluid">
-    <div class="col-12 d-flex justify-content-center">
-      <div class="row">
-        <div class = "col-12 d-flex flex-column justify-content-center">
-          <div class="col-12 d-flex flex-column justify-content-center">
 
-            <h1>New Post</h1>
-            <p>
-              <%= form.label :title %>
-              <%= form.text_field :title %>
-            </p>
-            <div class ="row">
-              <div id="result-name"></div>
-              <div id="result-minimum"></div>
-            </div>
-              <div class = 'row'>
-                <div class="col-4 d-flex flex-column justify-content-center" >
-                <div id="result-image"></div>
-              </div>
-            </div>
-        <div class="row">
-          <div class="col-12 d-flex flex-column justify-content-center">
-            <p><%= form.label :Restaurant %></p><br>
-            <p><%= collection_select(:post, :restaurant_id, Restaurant.all, :id, :name, {prompt: true}, {:id => 'post_restaurant_id'}) %></p>
-          </div>
-        </div>
-          <div class="row">
-              <div class="col-12 d-flex flex-column justify-content-center">
-              <p>  <%= form.label :pickup_location %><br>  </p>
-                <p><%= form.text_field :pickup_location %></p>
-            </div>
-            </div>
-              <div class="row">
-                  <div class="col-12 d-flex flex-column justify-content-center">
-                      <p> <%= form.label :message %><br>    </p>
-                      <p><%= form.text_area :message %></p>
-              </div>
-              </div>
-            <p>
-              <%= form.submit({:class => "btn btn-primary btn-style"})%>
-            </p>
-            <%= button_to 'Back to All Posts', posts_path, {method:'get', class:'btn btn-primary btn-style'} %>
-            </div>
-          </div>
-          </div>
+<%= form_with scope: :post, url: posts_path, local: true do |form| %>
+  <div class="container">
+    <h1>New Post</h1>
+    <div class="row">
+      <div class="col-4" style="text-align:right;">  
+        <p>
+          <%= form.label :title %>
+        </p><br>
+        <p>
+          <%= form.label :Restaurant %>
+        </p><br>
+        <p>
+          <%= form.label :pickup_location %>  
+        </p><br>
+        <p>
+          <%= form.label :message %>
+        </p><br> 
       </div>
 
+      <div class ="col-4" style="text-align:left;">
+        <p>
+          <%= form.text_field :title %>
+        </p><br>
+        <p>
+          <%= collection_select(:post, :restaurant_id, Restaurant.all, :id, :name, {prompt: true}, {:id => 'post_restaurant_id'}) %>
+        </p><br>
+        <p>
+          <%= form.text_field :pickup_location %>
+        </p><br>
+        <p>
+        <%= form.text_area :message %>
+        </p><br>
+
+        <%= form.submit({:class => "btn btn-primary btn-style"})%>
 
 
+        <%= button_to 'Back to All Posts', posts_path, {method:'get', class:'btn btn-primary btn-style'} %>
+      </div>
+
+      <div class ="col-4" style="text-align:center;">
+        <div id="result-name"></div>
+        <br>
+        <div id="result-minimum"></div>
+        <br>
+        <div id="result-image"></div>
+      </div>
     </div>
-<% end %>
+    
+    <% end %>
+    
+  </div>
+
+  
+
+
+    
+    
+              
