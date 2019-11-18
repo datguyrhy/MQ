@@ -90,6 +90,32 @@
       </table>
       </div>
 
+        <tbody>
+            <% @orders.each do |order| %>
+                <tr>
+                    <td><%= button_to "View Order", post_order_path(post_id: @post.id, id: order.id), {method:'get', class:'btn btn-primary btn-style'}%></td>
+                    <td><%= order.customer.customer_profile.name %></td>
+                    <td><%= order.total_payable %></td>
+                </tr>
+            <% end %>
+            <tr>
+                <td colspan="2" class="text-right">
+                    <strong>Total amount for the orders for this post: </strong>
+                </td>
+                <td>
+                    <strong>$<%= @orders.sum(:total_payable) %></strong>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-right">
+                    <strong>Minimum spending for this restaurant: </strong>
+                </td>
+                <td>
+                    <strong>$<%= @post.restaurant.minimum_spending %></strong>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 <br/>
 <br/>
 
