@@ -32,19 +32,19 @@ Restaurant.create( :name => 'Pasta Fresca',:address =>'521 Watten Drive', :image
 
 
 # Post==================================================================================
-Post.create( :title => 'Sushi Shakedown',:restaurant_id => 1,:customer_id => 1,:message => 'Calling all sushi lovers! Join this movement of sushi overload!',:pickup_location => 'Bedok MRT control station')
+Post.create( :title => 'Sushi Shakedown',:restaurant_id => 1,:customer_id => 1,:message => 'Who wants Sushi Tei!? Just help me gather $50 and meet me at Bedok MRT for eternal bliss',:pickup_location => 'Bedok MRT control station')
 
-Post.create( :title => 'Burger Bashi',:restaurant_id => 2,:customer_id => 3,:message => 'Let us train for the burger eating world cup',:pickup_location => '238 Orchard Road, Singapore 246333')
+Post.create( :title => 'Burger Bashi',:restaurant_id => 2,:customer_id => 3,:message => 'Calling all grub lovers in the Orchard area! Unite for $30 and a burger from Carls Junior will be yours',:pickup_location => '238 Orchard Road, Singapore 246333')
 
-Post.create( :title => 'Pizza Piesta',:restaurant_id => 3,:customer_id => 2,:message => 'Cowabunga!!!',:pickup_location => 'Blk 32 Tampines Ave 3, Singapore 524352, void deck')
+Post.create( :title => 'Pizza Piesta',:restaurant_id => 3,:customer_id => 2,:message => 'Old is Gold! Pizza Hut party in Tampines for just $40!',:pickup_location => 'Blk 32 Tampines Ave 3, Singapore 524352, void deck')
 
-Post.create( :title => 'Super Size Her',:restaurant_id => 4,:customer_id => 2,:message => 'Why let her call you fat?',:pickup_location => 'Redhill MRT control station')
+Post.create( :title => 'Super Size Her',:restaurant_id => 4,:customer_id => 2,:message => 'Mcdonalds without friends just dont cut it. Meet me at Redhill MRT and we can have a party for just $20!',:pickup_location => 'Redhill MRT control station')
 
-Post.create( :title => 'Makan Sini',:restaurant_id => 5,:customer_id => 3,:message => 'Stuff yourself with local goodness',:pickup_location => 'Blk 15 Hougang Ave 1, lift lobby')
+Post.create( :title => 'Makan Sini',:restaurant_id => 5,:customer_id => 3,:message => 'Peranakan with Peramakan. Make them go the distance to Hougang for just a grand astounding total of $40',:pickup_location => 'Blk 15 Hougang Ave 1, lift lobby')
 
-Post.create( :title => 'Koi Duh',:restaurant_id => 6,:customer_id => 3,:message => 'This is for the pearl suckers. Unite.',:pickup_location => 'Chinatown Point Level 2 female toilet entrance')
+Post.create( :title => 'Koi Duh',:restaurant_id => 6,:customer_id => 3,:message => 'Chinatown Point will never be the same again with just $10 worth of Koi bubble tea!',:pickup_location => 'Chinatown Point Level 2 female toilet entrance')
 
-Post.create( :title => 'When in Rome',:restaurant_id => 7,:customer_id => 1,:message => 'Do what the Romans do. Till pasta-finish do us part',:pickup_location => 'Braddell MRT control station')
+Post.create( :title => 'When in Rome',:restaurant_id => 7,:customer_id => 1,:message => 'Who ever said Gastronomia is Italian fine-dining? Just $50 will feed your family to Roman-size, only at Braddell MRT',:pickup_location => 'Braddell MRT control station')
 
 
 # MenuItem========================================================================

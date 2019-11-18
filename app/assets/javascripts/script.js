@@ -17,14 +17,14 @@ $(document).ready(function(){
                 const displayName = document.getElementById("result-name");
                 displayName.innerHTML = "";
                 var resultName = document.createElement("div");
-                resultName.textContent="Restaurant Name:" + data.name;
+                resultName.textContent="Restaurant Name: " + data.name;
                 displayName.appendChild(resultName);
 
 
                 const displayMin = document.getElementById("result-minimum");
                 displayMin.innerHTML = "";
                 var resultMin = document.createElement("div");
-                resultMin.textContent="Minimum Spend:" + data.minimum_spending;
+                resultMin.textContent="Minimum Spend: " + data.minimum_spending;
                 displayMin.appendChild(resultMin);
 
                 const displayImage = document.getElementById("result-image");

@@ -7,7 +7,7 @@ class Post < ApplicationRecord
 
     def self.search(search)
       where("message ILIKE ?", "%#{search}%")
-      where("title ILIKE ?", "%#{search}%")
+      # where("title ILIKE ?", "%#{search}%")
     end
 
     def checkDiscountEligibility
