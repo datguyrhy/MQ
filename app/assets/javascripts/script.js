@@ -5,9 +5,9 @@ $(document).ready(function(){
   Paloma.controller('Posts', {
     new: function(){
       console.log("HELOOOOOOOOOO")
-      
+
       const fetchData = function(event){
-        $.ajax({
+        Rails.ajax({
             url: "/ajax/fetchrestaurant/"+event.target.value,
             type: "GET",
             dataType: "json",
@@ -19,7 +19,7 @@ $(document).ready(function(){
                 var resultName = document.createElement("div");
                 resultName.textContent="Restaurant Name:" + data.name;
                 displayName.appendChild(resultName);
-                
+
 
                 const displayMin = document.getElementById("result-minimum");
                 displayMin.innerHTML = "";
@@ -33,7 +33,7 @@ $(document).ready(function(){
                 resultPic.classList.add("ajax-img")
                 resultPic.src=data.image_url;
                 displayImage.appendChild(resultPic);
-                
+
             },
             error: function(xhr,textStatus,errorThrown){
                 console.log("ERROR");

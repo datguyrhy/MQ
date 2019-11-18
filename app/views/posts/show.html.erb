@@ -1,9 +1,9 @@
 <body>
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+            <div class="offset-1 col-10 d-flex flex-column align-items-start">
               <div class="row d-flex ">
-                <table class= "d-flex align-items-start">
+                <table class= "d-flex align-items-start" style="padding-left: 12px;">
                   <tr>
                     <td><h3>Subject:</h3>
                     </td>
@@ -44,51 +44,52 @@
                             </td>
                             </tr>
                   </table>
-
                 </div>
-
-
               <!-- this is the end of the container div -->
             </div>
-
         </div>
+          <br />
     </div>
+    <div class = "offset-1 col-10 d-flex">
+      <table class="table table-sm text-center">
+          <thead>
+              <tr>
+                  <th>Order ID</th>
+                  <th>Customer Name</th>
+                  <th>Total Payable</th>
+              </tr>
+          </thead>
 
-    <table class="table table-sm text-center">
-        <thead>
-            <tr>
-                <th>Order ID</th>
-                <th>Customer Name</th>
-                <th>Total Payable</th>
-            </tr>
-        </thead>
+          <tbody>
+              <% @orders.each do |order| %>
+                  <tr>
+                      <td><%= button_to "View Order", post_order_path(post_id: @post.id, id:order.id), {method:'get', class:'btn btn-primary btn-style'}%></td>
+                      <td style="padding-top:10px;"><p class="d-flex justify-content-center align-items-center" style="margin-bottom: 5px;">
+                        <%= order.customer.customer_profile.name %>
+                        </p></td>
+                      <td style="padding-top:10px;">$<%= order.total_payable %></td>
+                  </tr>
+              <% end %>
+              <tr>
+                  <td colspan="2" class="text-right">
+                      <strong>Total amount for the orders for this post: </strong>
+                  </td>
+                  <td>
+                      <strong>$<%= @orders.sum(:total_payable) %></strong>
+                  </td>
+              </tr>
+              <tr>
+                  <td colspan="2" class="text-right">
+                      <strong>Minimum spending for this restaurant: </strong>
+                  </td>
+                  <td>
+                      <strong>$<%= @post.restaurant.minimum_spending %></strong>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      </div>
 
-        <tbody>
-            <% @orders.each do |order| %>
-                <tr>
-                    <td><%= button_to "View Order", order_path(order.id), {method:'get', class:'btn btn-primary btn-style'}%></td>
-                    <td><%= order.customer.customer_profile.name %></td>
-                    <td><%= order.total_payable %></td>
-                </tr>
-            <% end %>
-            <tr>
-                <td colspan="2" class="text-right">
-                    <strong>Total amount for the orders for this post: </strong>
-                </td>
-                <td>
-                    <strong>$<%= @orders.sum(:total_payable) %></strong>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" class="text-right">
-                    <strong>Minimum spending for this restaurant: </strong>
-                </td>
-                <td>
-                    <strong>$<%= @post.restaurant.minimum_spending %></strong>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 <br/>
 <br/>
 
@@ -103,7 +104,7 @@
 </body>
 
 <div class= "col-12 d-flex justify-content-center">
- 
+
     <% if @post.discount_achieved == false %>
         <% if current_customer.id == @post.customer_id %>
              <%= button_to 'ADD ORDER', new_post_order_path(@post.id),{method:'get', class:'btn btn-primary btn-style'} %> &ensp;
