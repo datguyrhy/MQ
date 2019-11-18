@@ -1,25 +1,13 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Customer Profiles</h1>
+<div class= 'container-fluid'>
+  <div class ="row">
+    <div class = "col-12 d-flex flex-column justify-content-center align-items-center">
+      <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <h1 style="color: #fcf9ea;"> There is nothing here</h1>
 
-  <tbody>
-    <% @customer_profiles.each do |customer_profile| %>
-      <tr>
-        <td><%=  customer_profile.name %></td>
-        <td><%= link_to 'Show', customer_profile %></td>
-        <td><%= link_to 'Edit', edit_customer_profile_path(customer_profile) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <%= button_to 'Back to Posts Index',posts_path, {method:'get', class:'btn btn-primary btn-style'}%>
+      </div>
 
-<br>
-
-<%= link_to 'New Customer Profile', new_customer_profile_path %>
+    </div>
+  </div>

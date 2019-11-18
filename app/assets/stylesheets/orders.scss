@@ -1,3 +1,18 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.btn-style{
+  background-color: #A44704 ;
+  border-color: #A44704 ;
+  color: white;
+}
+
+.btn-style:hover{
+  background-color: #873901;
+  border-color: #A44704 ;
+  color:white;
+}
+body{
+  background-color:#C59E6C;
+}

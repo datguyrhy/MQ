@@ -16,3 +16,30 @@
 @import 'customer_profiles';
 @import 'posts';
 @import 'devise';
+
+a{
+  color:#ffeecc;
+}
+.btn-style{
+  background-color: #A44704 ;
+  border-color: #A44704 ;
+  color: #ffeecc;
+}
+
+.btn-style:hover{
+  background-color: #873901;
+  border-color: #A44704 ;
+  color:#ffeecc;
+}
+.btn-style:focus{
+  border-color:#A44704;
+background-color:#A44704;
+}
+
+#checkbox{
+  min-width: 30px;
+}
+
+p,h1,h2,h3,h4,td,label {
+  color:#4d0906;
+}
