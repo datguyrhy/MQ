@@ -66,7 +66,7 @@
         <tbody>
             <% @orders.each do |order| %>
                 <tr>
-                    <td><%= button_to "View Order", order_path(order.id), {method:'get', class:'btn btn-primary btn-style'}%></td>
+                    <td><%= button_to "View Order", post_order_path(post_id: @post.id, id: order.id), {method:'get', class:'btn btn-primary btn-style'}%></td>
                     <td><%= order.customer.customer_profile.name %></td>
                     <td><%= order.total_payable %></td>
                 </tr>
@@ -103,7 +103,7 @@
 </body>
 
 <div class= "col-12 d-flex justify-content-center">
- 
+
     <% if @post.discount_achieved == false %>
         <% if current_customer.id == @post.customer_id %>
              <%= button_to 'ADD ORDER', new_post_order_path(@post.id),{method:'get', class:'btn btn-primary btn-style'} %> &ensp;
