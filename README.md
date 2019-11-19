@@ -5,11 +5,11 @@
 Minimum Quantity or MQ is an app we came up with for working adults that want to order take-out but cant meet the min. order spending.
 This app will allow users to tag-on to other users orders through posts.
 
-##Wireframe
+## Wireframe
 
 ![Wireframe](https://github.com/datguyrhy/MQ/blob/master/Wireframe-and-ERD/wireframe.png)
 
-##ERD
+## ERD
 ![ERD](https://github.com/datguyrhy/MQ/blob/master/Wireframe-and-ERD/Project3_MQ_ERD.png)
 
 ## Built With
